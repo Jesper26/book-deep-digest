@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>格式示例：《孙子兵法》精读回顾（节选 3 篇，示范结构用） · 精读回顾</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F5F2EA; --panel:#FFFDF7; --panel-2:#FBF8F1;
+  --ink:#1B1815; --mid:#5C5449; --faint:#9A9184;
+  --line:#E3DCD0; --line-soft:#EFEAE0;
+  --accent:#9C2B22; --gold:#9A7B3F;
+  --serif:'Spectral','Noto Serif SC','Source Han Serif SC','Songti SC',Georgia,serif;
+  --sans:-apple-system,'Segoe UI Variable Text','Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;
+}
+html.dark{
+  --paper:#14120F; --panel:#1B1916; --panel-2:#211E19;
+  --ink:#EFE9DE; --mid:#A79E90; --faint:#7B7365;
+  --line:#332F28; --line-soft:#262319;
+  --accent:#D2604F; --gold:#C9A961;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 15.5px/1.85 var(--sans);
+  -webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(70vw 60vh at 12% -10%,rgba(156,43,34,.055),transparent 60%),
+             radial-gradient(60vw 50vh at 92% 8%,rgba(154,123,63,.07),transparent 62%);}
+body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.32;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.42'/%3E%3C/svg%3E")}
+#bar{position:fixed;top:0;left:0;height:2px;width:0;z-index:60;background:var(--accent);transition:width .12s linear}
+
+/* ---------- shell ---------- */
+.wrap{position:relative;z-index:1;display:flex;align-items:flex-start;max-width:1240px;margin:0 auto}
+.rail{position:sticky;top:0;flex:0 0 268px;width:268px;height:100vh;overflow-y:auto;
+  padding:44px 26px 40px;border-right:1px solid var(--line);scrollbar-width:thin}
+.rail::-webkit-scrollbar{width:3px}.rail::-webkit-scrollbar-thumb{background:var(--line)}
+.brand{font:400 15px/1.5 var(--serif);color:var(--ink);letter-spacing:.04em}
+.brand small{display:block;margin-top:6px;font:500 9.5px/1.5 var(--sans);letter-spacing:.3em;
+  text-transform:uppercase;color:var(--faint)}
+#q{width:100%;margin:26px 0 6px;padding:8px 0;background:none;color:var(--ink);
+  border:0;border-bottom:1px solid var(--line);outline:none;font:400 13px/1.6 var(--sans)}
+#q::placeholder{color:var(--faint)}
+#q:focus{border-bottom-color:var(--accent)}
+nav{margin-top:18px}
+nav a{position:relative;display:block;padding:7px 0 7px 14px;color:var(--mid);text-decoration:none;
+  font-size:13px;line-height:1.55;opacity:0;animation:rise .55s cubic-bezier(.2,.7,.2,1) forwards;
+  animation-delay:calc(var(--i,0)*16ms + .25s);transition:color .18s,padding .18s}
+nav a:before{content:'';position:absolute;left:0;top:12px;width:5px;height:1px;background:var(--line);transition:.2s}
+nav a.lv3{font-size:12.5px;color:var(--faint);padding-left:26px}
+nav a:hover{color:var(--accent);padding-left:18px}
+nav a.on{color:var(--ink);font-weight:500}
+nav a.on:before{width:12px;background:var(--accent)}
+.railfoot{margin-top:26px;padding-top:18px;border-top:1px solid var(--line);
+  font-size:11px;letter-spacing:.1em;color:var(--faint)}
+
+/* ---------- content ---------- */
+main{flex:1;min-width:0;padding:0 0 200px}
+.sheet{max-width:730px;margin:0 auto;padding:0 44px;position:relative;z-index:1}
+.hero{padding:118px 0 64px;border-bottom:1px solid var(--line)}
+.hero>*{opacity:0;transform:translateY(16px);animation:rise .95s cubic-bezier(.2,.75,.2,1) forwards}
+.hero>*:nth-child(1){animation-delay:.05s}.hero>*:nth-child(2){animation-delay:.14s}
+.hero>*:nth-child(3){animation-delay:.24s}.hero>*:nth-child(4){animation-delay:.34s}
+.kicker{font:500 10px/1.6 var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--faint)}
+h1{font:300 clamp(36px,5.6vw,60px)/1.14 var(--serif);letter-spacing:.015em;margin:20px 0 0}
+h1 em{font-style:italic;color:var(--mid)}
+.sub{margin:26px 0 0;max-width:33em;font:italic 300 19px/1.75 var(--serif);color:var(--mid)}
+.herofoot{margin-top:34px;display:flex;gap:22px;flex-wrap:wrap;
+  font:400 11px/1.6 var(--sans);letter-spacing:.16em;color:var(--faint)}
+h2{position:relative;margin:104px 0 10px;padding-top:30px;border-top:1px solid var(--line);
+  font:300 27px/1.32 var(--serif);letter-spacing:.01em}
+h2:before{content:counter(sec,decimal-leading-zero);display:block;margin-bottom:14px;
+  font:500 10px/1 var(--sans);letter-spacing:.34em;color:var(--gold)}
+h3{font:500 20px/1.4 var(--serif);margin:0}
+h4{margin:26px 0 6px;font:500 10.5px/1 var(--sans);letter-spacing:.26em;color:var(--accent)}
+p{margin:10px 0}
+hr{border:0;border-top:1px solid var(--line);margin:26px 0}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(156,43,34,.28)}
+code{font-family:ui-monospace,'SFMono-Regular',Consolas,monospace;font-size:13px;
+  background:var(--panel-2);padding:1px 5px;border-radius:3px}
+pre{background:var(--panel-2);padding:14px 16px;border-radius:6px;overflow:auto;font-size:13px}
+.badge{display:inline-block;margin-right:6px;padding:1px 6px;border-radius:3px;
+  background:var(--panel-2);border:1px solid var(--line);font:500 10px/1.6 var(--sans);
+  letter-spacing:.1em;color:var(--faint);vertical-align:1px}
+
+/* quote */
+blockquote{margin:16px 0;padding:2px 0 2px 22px;border-left:2px solid var(--accent)}
+blockquote.cmt{border-left:2px dashed var(--gold)}
+.q{margin:0;font:italic 400 17.5px/1.72 var(--serif);color:var(--ink)}
+.q-tr{margin:7px 0 0;font:400 14.5px/1.8 var(--sans);color:var(--mid)}
+.q-extra{margin:7px 0 0;font-size:14.5px;color:var(--mid)}
+.q-loc{margin:9px 0 0;font:400 11px/1.6 var(--sans);letter-spacing:.1em;color:var(--faint)}
+
+/* lists */
+ul,ol{margin:10px 0;padding:0;list-style:none}
+li{position:relative;padding-left:22px;margin:6px 0}
+ul>li:before{content:'';position:absolute;left:2px;top:.85em;width:8px;height:1px;background:var(--line)}
+ol{counter-reset:o}
+ol>li{counter-increment:o}
+ol>li:before{content:counter(o,decimal-leading-zero);position:absolute;left:0;top:0;
+  font:500 11px/1.9 var(--sans);letter-spacing:.06em;color:var(--gold)}
+ul ul,ol ol,ul ol,ol ul{margin:4px 0}
+
+/* table */
+.tw{overflow-x:auto;margin:20px 0}
+table{width:100%;border-collapse:collapse;font:400 14px/1.65 var(--sans)}
+th{text-align:left;padding:0 18px 10px 0;border-bottom:1px solid var(--line);
+  font:500 9.5px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--faint);white-space:nowrap}
+td{padding:11px 18px 11px 0;border-bottom:1px solid var(--line-soft);vertical-align:top}
+tbody tr{transition:background .15s}
+tbody tr:hover td{background:var(--panel-2)}
+
+/* chapter card */
+.chap{border-top:1px solid var(--line-soft);margin-top:26px;padding-top:20px}
+.chap>.hd{display:flex;align-items:baseline;gap:16px;cursor:pointer;user-select:none}
+.chap>.hd .num{flex:0 0 42px;font:300 24px/1 var(--serif);color:var(--gold);letter-spacing:.02em}
+.chap>.hd .num.dot:before{content:'';display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold);vertical-align:.35em}
+.chap>.hd .t{flex:1;font:500 19px/1.45 var(--serif)}
+.chap>.hd .tg{flex:0 0 auto;font:400 10px/1 var(--sans);letter-spacing:.2em;color:var(--faint)}
+.chap>.hd:hover .t{color:var(--accent)}
+.chap>.bd{max-height:0;overflow:hidden;opacity:0;transition:max-height .42s cubic-bezier(.4,0,.2,1),opacity .3s}
+.chap.open>.bd{max-height:none;opacity:1}
+.chap.open>.bd.openh{max-height:none}
+
+/* reveal + search + answer */
+.rv{opacity:0;transform:translateY(12px);transition:opacity .6s,transform .6s}
+.rv.in{opacity:1;transform:none}
+mark{background:rgba(201,169,97,.34);color:inherit;padding:0 1px;border-radius:2px}
+.ans{position:relative;cursor:pointer;filter:blur(6px);transition:filter .25s;user-select:none}
+.ans.open{filter:none}
+.ans:after{content:'点击展开';position:absolute;right:2px;bottom:-2px;padding:0 6px;
+  background:var(--panel);font:400 10px/1.7 var(--sans);letter-spacing:.12em;color:var(--faint)}
+.ans.open:after{content:''}
+.hide{display:none !important}
+
+/* toolbar */
+.tools{position:sticky;top:0;z-index:20;display:flex;gap:20px;align-items:center;
+  margin:0 0 -1px;padding:14px 44px;background:var(--paper);background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:blur(10px);border-bottom:1px solid transparent}
+.tools button{background:none;border:0;padding:0;cursor:pointer;color:var(--faint);
+  font:400 10px/1 var(--sans);letter-spacing:.2em;transition:color .18s}
+.tools button:hover{color:var(--accent)}
+.tools .sp{flex:1}
+
+@keyframes rise{to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;opacity:1!important}}
+@media(max-width:960px){
+  .wrap{display:block}.rail{position:static;width:auto;height:auto;border-right:0;
+    border-bottom:1px solid var(--line);padding:24px 22px}
+  .sheet{padding:0 22px}.tools{padding:12px 22px}.hero{padding:56px 0 40px}h2{margin-top:64px}
+}
+@media print{
+  body::before,body::after,#bar,.rail,.tools{display:none!important}
+  body{background:#fff}.chap>.bd{max-height:none!important;opacity:1!important}
+  .ans{filter:none!important}.hero{padding:0 0 24px}h2{margin-top:36px;page-break-after:avoid}
+  .chap{page-break-inside:avoid}
+}
+</style></head><body>
+<div id="bar"></div>
+<div class="wrap">
+<aside class="rail">
+  <div class="brand">格式示例：《孙子兵法》精读回顾（节选 3 篇，示范结构用）<small>Reading Review</small></div>
+  <input id="q" placeholder="检索关键词…" autocomplete="off">
+  <nav id="nav"></nav>
+  <div class="railfoot">按 <b>/</b> 聚焦检索 · <b>P</b> 导出 PDF</div>
+</aside>
+<main id="main"><div class="sheet"><h1>格式示例：《孙子兵法》精读回顾（节选 3 篇，示范结构用）</h1>
+<blockquote><p class="q">说明：本文件只示范<strong>结构与措辞尺度</strong>，真实产出需覆盖全书全部章节。</p><p class="q-extra">示例中的金句均为原文可考之句；换书时必须换成该书真实原句。</p></blockquote>
+<h2 id="h2">一、书籍基本信息</h2>
+<div class="table-wrap"><table><thead><tr><th>项目</th><th>内容</th></tr></thead><tbody><tr><td>书名</td><td>孙子兵法</td></tr><tr><td>作者</td><td>孙武（春秋末期）</td></tr><tr><td>出版/成书</td><td>约公元前 5 世纪</td></tr><tr><td>体裁</td><td>兵学 / 战略</td></tr><tr><td>篇幅</td><td>13 篇，约 6000 字</td></tr><tr><td>本次覆盖</td><td>始计篇、谋攻篇、兵势篇（示例）</td></tr></tbody></table></div>
+<p><strong>一句话定位</strong>：把战争从"勇力之争"改写为"计算与造势之争"——先算胜败，再谈交战。</p>
+<p><strong>阅读价值</strong>：它给的胜负判据（道、天、地、将、法）可以直接迁移到商业竞争与资源博弈；全书几乎不谈战术细节，始终在处理"如何在开战前就锁定胜局"。</p>
+<h2 id="h6">二、全书结构鸟瞰</h2>
+<div class="table-wrap"><table><thead><tr><th>篇序</th><th>篇名</th><th>核心命题</th></tr></thead><tbody><tr><td>1</td><td>始计</td><td>战前庙算：胜负可先知</td></tr><tr><td>3</td><td>谋攻</td><td>全胜优于破胜：不战而屈人之兵</td></tr><tr><td>5</td><td>兵势</td><td>以正合，以奇胜：造势重于用力</td></tr></tbody></table></div>
+<h2 id="h8">三、章节精读</h2>
+<h3 id="h9">第 1 篇 · 始计篇</h3>
+<p><strong>一句话主旨</strong>：战争是国家生死之事，开战前必须先做五事七计的系统比较。</p>
+<h4 id="h11">金句 1</h4>
+<blockquote><p class="q">兵者，国之大事，死生之地，存亡之道，不可不察也。</p><p class="q-loc">—— 位置：始计篇 开篇</p></blockquote>
+<p><strong>释义</strong>：战争关系国家存亡，必须被当作可计算、可核查的对象来审视，而不能凭情绪或义气启动。<br><strong>为什么重要</strong>：它先确立了全书的方法论基调——战争是"察"（分析）的对象，不是"勇"的舞台。</p>
+<h4 id="h14">金句 2</h4>
+<blockquote><p class="q">攻其无备，出其不意。</p><p class="q-loc">—— 位置：始计篇</p></blockquote>
+<p><strong>释义</strong>：打击对方没有设防的环节，在其未预期的时机与方向上行动。<br><strong>为什么重要</strong>：这是"诡道"落地的具体形态，强调胜利来自信息与节奏的落差，而非正面消耗。</p>
+<h4 id="h17">章节总结</h4>
+<ul><li><strong>核心主题</strong>：以"庙算"取代侥幸——胜负在开战前已由五事七计的对比决定。</li><li><strong>主要论点</strong>：<<ol><li>战争必须先经系统性比较（道、天、地、将、法）。</li><li>"计"不是阴谋，而是对双方条件的公开核算。</li><li>计算之外的变量，靠"势"与"诡道"去制造。</li></ol></li><li><strong>关键脉络</strong>：国之大事 → 五事七计定胜负 → 计利以听乃为之势 → 势者因利而制权 → 兵者诡道。</li><li><strong>关键术语</strong>：庙算、五事（道天地将法）、七计、诡道。</li><li><strong>与全书的关联</strong>：本篇是总纲，后续各篇都是在展开"如何造势"与"如何低成本取胜"。</li></ul>
+<h3 id="h19">第 3 篇 · 谋攻篇</h3>
+<p><strong>一句话主旨</strong>：最高级的胜利是完整拿下目标而不摧毁它——破胜是次等方案。</p>
+<h4 id="h21">金句 1</h4>
+<blockquote><p class="q">百战百胜，非善之善者也；不战而屈人之兵，善之善者也。</p><p class="q-loc">—— 位置：谋攻篇</p></blockquote>
+<p><strong>释义</strong>：连打连赢不算最高明，不交战就让对方屈服才是上上策。<br><strong>为什么重要</strong>：它把评价标准从"赢的次数"改为"赢的代价"，是全书成本意识最强的一句。</p>
+<h4 id="h24">金句 2</h4>
+<blockquote><p class="q">知彼知己者，百战不殆。</p><p class="q-loc">—— 位置：谋攻篇</p></blockquote>
+<p><strong>释义</strong>：同时掌握敌我双方的真实条件，才能不陷入危险。<br><strong>为什么重要</strong>：指出信息对称是决策的最小前提；只知己或只知彼都会系统性高估胜率。</p>
+<h4 id="h27">章节总结</h4>
+<ul><li><strong>核心主题</strong>：以"全"代"破"，用最小代价取得完整成果。</li><li><strong>主要论点</strong>：<<ol><li>上兵伐谋，其次伐交，其次伐兵，其下攻城——手段有明确的代价排序。</li><li>目标不是击败对手，而是保全自己想要得到的东西。</li><li>将领对国君的"不受命"边界：知胜有五，将在外有自主空间。</li></ol></li><li><strong>关键脉络</strong>：全胜为上 → 伐谋/伐交/伐兵/攻城的代价阶梯 → 知胜有五 → 知彼知己。</li><li><strong>关键术语</strong>：全胜、伐谋、十则围之、知胜有五。</li><li><strong>与全书的关联</strong>：把始计篇的"算"落成"选手段"，为后篇的"奇正"留出空间——能不打则不打，必须打时再谈怎么打。</li></ul>
+<h3 id="h29">第 5 篇 · 兵势篇</h3>
+<p><strong>一句话主旨</strong>：胜利不靠士兵个体更勇，而靠组织形态与节奏制造出的"势"。</p>
+<h4 id="h31">金句 1</h4>
+<blockquote><p class="q">凡战者，以正合，以奇胜。</p><p class="q-loc">—— 位置：兵势篇</p></blockquote>
+<p><strong>释义</strong>：用常规力量正面接住对手，用非常规力量在关键点上取胜。<br><strong>为什么重要</strong>：把胜利归因于结构配置（奇正）而非个体强度，是"造势"思想的核心表达。</p>
+<h4 id="h34">金句 2</h4>
+<blockquote><p class="q">善战者，求之于势，不责于人。</p><p class="q-loc">—— 位置：兵势篇</p></blockquote>
+<p><strong>释义</strong>：会打仗的人从态势中求胜，不苛求部属个人能力。<br><strong>为什么重要</strong>：管理含义极强——先造一个让普通人也能赢的局面，再去谈人的努力。</p>
+<h4 id="h37">章节总结</h4>
+<ul><li><strong>核心主题</strong>：势 = 结构 × 节奏，是可以被设计出来的变量。</li><li><strong>主要论点</strong>：<<ol><li>分数、形名、奇正、虚实构成组织与指挥的四层基础。</li><li>势来自落差（如转圆石于千仞之山），落差由位置与时机决定。</li><li>任势者，其战人也如转木石——善战人之势，如转圆石于千仞之山者。</li></ol></li><li><strong>关键脉络</strong>：四层基础（分数→形名→奇正→虚实） → 奇正相生 → 势险节短 → 求之于势。</li><li><strong>关键术语</strong>：分数、形名、奇正、虚实、势险节短。</li><li><strong>与全书的关联</strong>：承接谋攻篇"必须打时怎么打"，把胜利从勇气问题转成配置问题。</li></ul>
+<h2 id="h39">四、全书总结</h2>
+<h3 id="h40">主线逻辑</h3>
+<p>全书围绕一条递减代价的链条展开：<strong>先算（始计）→ 能不能不打（谋攻/虚实）→ 必须打时怎么打（军形/兵势/军争）→ 特殊地形与特殊手段（九变/地形/九地/火攻）→ 情报（用间）</strong>。<br>越靠前的环节，收益越高、代价越低；越靠后的环节，越依赖硬碰硬。孙子的整体倾向非常清楚：把胜负尽量提前到"算"与"谋"的阶段解决。</p>
+<h3 id="h42">核心观点关联</h3>
+<div class="table-wrap"><table><thead><tr><th>观点 A</th><th>观点 B</th><th>关系</th></tr></thead><tbody><tr><td>庙算五事七计</td><td>知彼知己</td><td>B 是 A 的信息前提，算得准的前提是看得全</td></tr><tr><td>全胜（不战而屈人）</td><td>奇正相生</td><td>A 是目标，B 是达不成目标时的退路手段</td></tr><tr><td>求之于势</td><td>不责于人</td><td>同一判断的因果两面：造势在前，人的努力在后</td></tr><tr><td>兵者诡道</td><td>用间</td><td>诡道依赖信息差，用间是信息差的制度性来源</td></tr></tbody></table></div>
+<h3 id="h44">整体思想框架</h3>
+<ol><li><strong>成本优先</strong>：一切手段按"全→破"排序，胜利以净收益而非击败对手来衡量。</li><li><strong>可计算性</strong>：胜负不是运气，是五事七计的函数；先算，后打。</li><li><strong>结构优于个体</strong>：胜利由形、势、奇正这些结构性变量决定。</li><li><strong>信息与节奏</strong>：诡道、虚实、用间共同服务于制造并利用不对称。</li></ol>
+<h3 id="h46">作者意图与背景</h3>
+<p>成书于春秋末期诸侯兼并、战争频率极高的环境，孙子面对的是"如何以有限国力反复取胜"的现实问题，因此全书压倒性地关注代价控制与可逆性，而非英勇叙事。</p>
+<h3 id="h48">三个最该记住的结论</h3>
+<ol><li>胜负在开战前就已经由条件对比决定。</li><li>最好的胜利是保全战果而非摧毁对手。</li><li>会打的人造势，不会打的人苛求人。</li></ol>
+<h2 id="h50">五、重点回顾提示</h2>
+<h3 id="h51">高频回顾清单</h3>
+<ul><li>☐ 五事：道、天、地、将、法 —— 我的项目/竞争里各自对应什么？</li><li>☐ 手段代价阶梯：伐谋 &gt; 伐交 &gt; 伐兵 &gt; 攻城 —— 我现在用的是第几层？</li><li>☐ 奇正：我的"正"是什么？"奇"在哪里？两者是否互相转化？</li><li>☐ 势险节短：落差够不够？出手节奏够不够短？</li><li>☐ 知彼知己：我缺的是彼还是己？</li></ul>
+<h3 id="h53">自测题</h3>
+<p><strong>Q1. 孙子评价胜利的最高标准是什么？</strong></p>
+<p>答案：不战而屈人之兵（全胜），而非百战百胜。</p>
+<p><strong>Q2. "求之于势，不责于人"主张把责任放在哪里？</strong></p>
+<p>答案：放在态势与结构的设计上，而不是部属的个人努力上。</p>
+<p><strong>Q3. 五事指哪五项？</strong></p>
+<p>答案：道、天、地、将、法。</p>
+<p><strong>Q4. "以正合，以奇胜"中的"奇"指的是什么？</strong></p>
+<p>答案：非常规的、用于制造关键突破的力量配置，与正面接敌的"正"相对，且奇正相生、可互相转化。</p>
+<p><strong>Q5. 在孙子的手段排序中，代价最高的一种是什么？</strong></p>
+<p>答案：攻城——伐谋、伐交、伐兵之后的下策。</p>
+<h3 id="h64">行动清单</h3>
+<ol><li>下次做重大决策前，先列"五事七计"对照表，再决定要不要做。</li><li>遇到冲突场景，先问"有没有不动用攻城级别的手段也能达成目标的做法"。</li><li>复盘一次失败：判断它是"算"错了、"势"没造出来，还是"人"的问题。</li></ol>
+<h3 id="h66">易混淆点</h3>
+<ul><li><strong>"诡道"≠ 欺骗道德</strong>：它是制造并利用信息差与预期差，属于手段层，不是价值判断。</li><li><strong>"全胜"≠ 不抵抗</strong>：前提是具备足以让对方屈服的实力与态势。</li><li><strong>"奇"≠ 冒险</strong>：奇是在正已稳住局面之后的增量，脱离正的奇是赌博。</li></ul>
+<h3 id="h68">复习节奏建议</h3>
+<ul><li>第 1 次：读完后 24 小时内，只看"三个最该记住的结论"。</li><li>第 2 次：3 天后，做自测题，错题回到对应章节重读金句。</li><li>第 3 次：1 周后，只看"全书结构鸟瞰"表，尝试凭记忆复原主线逻辑。</li><li>第 4 次：1 个月后，用"高频回顾清单"对照真实工作场景做一次迁移。</li></ul>
+<h2 id="h70">六、内容来源与置信度</h2>
+<div class="table-wrap"><table><thead><tr><th>项</th><th>说明</th></tr></thead><tbody><tr><td>来源类型</td><td>公有领域原文（中华书局通行本体系）</td></tr><tr><td>章节依据</td><td>按十三篇原文章节划分</td></tr><tr><td>金句置信度</td><td>高（原文可考）</td></tr><tr><td>存疑处</td><td>个别句子的分篇归属在不同版本中有差异，已按通行本处理</td></tr></tbody></table></div></div></main>
+</div>
+<script>
+var main=document.getElementById('main'),sheet=main.querySelector('.sheet');
+/* hero extraction */
+var h1=sheet.querySelector('h1'),first=sheet.children[0];
+if(h1){
+  var hero=document.createElement('div');hero.className='hero';
+  hero.innerHTML='<div class="kicker">The Intelligent Reader · 精读回顾</div>'
+   +'<h1>'+h1.innerHTML.replace(/[《》]/g,'')+'</h1>';
+  var bq=sheet.querySelector('h1 + blockquote, h1 ~ blockquote');
+  if(bq&&bq.previousElementSibling===h1){var s=document.createElement('p');s.className='sub';
+    s.innerHTML=bq.innerHTML;hero.appendChild(s);bq.parentNode.removeChild(bq);}
+  hero.appendChild((function(){var f=document.createElement('div');f.className='herofoot';
+    f.innerHTML='<span>按章节折叠</span><span>金句 · 释义</span><span>自测 · 回顾</span>';return f;})());
+  sheet.insertBefore(hero,first);h1.parentNode.removeChild(h1);
+}
+/* sticky toolbar */
+var tools=document.createElement('div');tools.className='tools';
+[['全部展开',function(){chaps.forEach(function(c){openChap(c,1);});}],
+ ['全部收起',function(){chaps.forEach(function(c){openChap(c,0);});}],
+ ['显示全部答案',function(){main.querySelectorAll('.ans').forEach(function(a){a.classList.add('open');});}],
+ ['纸 / 墨',function(){document.documentElement.classList.toggle('dark');}],
+ ['打印',function(){window.print();}]].forEach(function(x){
+  var b=document.createElement('button');b.textContent=x[0];b.onclick=x[1];tools.appendChild(b);});
+var sp=document.createElement('span');sp.className='sp';tools.insertBefore(sp,tools.children[3]);
+sheet.parentNode.insertBefore(tools,sheet);
+
+/* build nav */
+var nav=document.getElementById('nav'),hs=sheet.querySelectorAll('h2,h3'),html='';
+hs.forEach(function(h,i){h.id=h.id||'s'+i;
+  html+='<a class="'+(h.tagName==='H3'?'lv3':'')+'" href="#'+h.id+'" style="--i:'+i+'">'+h.textContent+'</a>';});
+nav.innerHTML=html;
+var links=[].slice.call(nav.children);
+
+/* wrap chapters */
+var chaps=[],els=[].slice.call(sheet.children),cur=null;
+els.forEach(function(el){
+  if(el.tagName==='H3'){
+    var nm=(el.textContent.match(/第\s*([0-9]+)\s*章/)||[])[1];
+    var card=document.createElement('div');card.className='chap';
+    var hd=document.createElement('div');hd.className='hd';
+    hd.innerHTML='<span class="num'+(nm?'':' dot')+'">'+(nm||'')+'</span><span class="t">'
+      +el.textContent.replace(/^第\s*[0-9]+\s*章\s*·\s*/,'')+'</span><span class="tg">收起</span>';
+    var bd=document.createElement('div');bd.className='bd';
+    card.appendChild(hd);card.appendChild(bd);sheet.insertBefore(card,el);el.remove();
+    hd.onclick=function(){openChap(card,!card.classList.contains('open'));};
+    chaps.push(card);cur=bd;
+  } else if(cur&&el.tagName!=='H2'&&el!==tools){cur.appendChild(el);}
+  else if(el.tagName==='H2'){cur=null;}
+});
+function openChap(c,yes){
+  c.classList.toggle('open',!!yes);
+  c.querySelector('.tg').textContent=yes?'收起':'展开';
+  var bd=c.querySelector('.bd');
+  bd.style.maxHeight=yes?bd.scrollHeight+'px':'0';
+  if(yes)bd.querySelectorAll('.rv').forEach(function(el){el.classList.add('in');});
+}
+/* default: open first chapter only */
+chaps.forEach(function(c,i){openChap(c,i===0);});
+
+/* 兹威格点评 -> dashed */
+main.querySelectorAll('blockquote').forEach(function(b){
+  if(b.textContent.indexOf('兹威格')>=0)b.classList.add('cmt');});
+
+/* answer masking */
+main.querySelectorAll('p,blockquote').forEach(function(el){
+  if(/^(答案|答|【答案】)[:：]?/.test(el.textContent.trim())){
+    el.classList.add('ans');el.onclick=function(){el.classList.toggle('open');};}});
+
+/* reveal on scroll */
+var io=new IntersectionObserver(function(es){
+  es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{rootMargin:'0px 0px -12% 0px'});
+sheet.querySelectorAll('h2,p,blockquote,table,ul,ol,h4').forEach(function(el){
+  if(!el.closest('.hero')){el.classList.add('rv');io.observe(el);}});
+
+/* nav active */
+var io2=new IntersectionObserver(function(es){
+  es.forEach(function(e){if(e.isIntersecting){
+    links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id);});}});
+},{rootMargin:'-10% 0px -80% 0px'});
+hs.forEach(function(h){io2.observe(h);});
+
+/* search */
+var marks=[];
+function clearMark(){marks.forEach(function(m){if(m.parentNode)m.parentNode.replaceChild(
+  document.createTextNode(m.textContent),m);});marks=[];}
+document.getElementById('q').oninput=function(){
+  clearMark();var k=this.value.trim();
+  chaps.forEach(function(c){c.classList.remove('hide');});
+  if(!k){return;}
+  chaps.forEach(function(c){
+    if(c.textContent.toLowerCase().indexOf(k.toLowerCase())<0){c.classList.add('hide');return;}
+    openChap(c,1);
+    try{var r=new RegExp('('+k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');
+      c.querySelectorAll('p,li,td').forEach(function(el){
+        if(el.children.length===0&&el.textContent.indexOf(k)>=0){
+          el.innerHTML=el.innerHTML.replace(r,'<mark>$1</mark>');
+          [].slice.call(el.querySelectorAll('mark')).forEach(function(m){marks.push(m);});}});}catch(e){}
+  });
+};
+document.addEventListener('keydown',function(e){
+  if(e.key==='/'&&document.activeElement!==document.getElementById('q')){
+    e.preventDefault();document.getElementById('q').focus();}
+  if((e.key==='p'||e.key==='P')&&!e.metaKey&&!e.ctrlKey&&document.activeElement!==document.getElementById('q')){
+    window.print();}
+});
+document.addEventListener('scroll',function(){
+  var h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;
+  document.getElementById('bar').style.width=(isNaN(p)?0:p)+'%';});
+function recalc(){chaps.forEach(function(c){if(c.classList.contains('open')){var bd=c.querySelector('.bd');bd.style.maxHeight=bd.scrollHeight+'px';}});}
+window.addEventListener('resize',recalc);
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(recalc);
+</script></body></html>

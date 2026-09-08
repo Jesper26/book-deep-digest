@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# WorkBuddy 本地数据（不应入库）
+.workbuddy/
+
+# 系统
+.DS_Store
+Thumbs.db

@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>聪明的投资者》精读回顾 · 精读回顾</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F5F2EA; --panel:#FFFDF7; --panel-2:#FBF8F1;
+  --ink:#1B1815; --mid:#5C5449; --faint:#9A9184;
+  --line:#E3DCD0; --line-soft:#EFEAE0;
+  --accent:#9C2B22; --gold:#9A7B3F;
+  --serif:'Spectral','Noto Serif SC','Source Han Serif SC','Songti SC',Georgia,serif;
+  --sans:-apple-system,'Segoe UI Variable Text','Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;
+}
+html.dark{
+  --paper:#14120F; --panel:#1B1916; --panel-2:#211E19;
+  --ink:#EFE9DE; --mid:#A79E90; --faint:#7B7365;
+  --line:#332F28; --line-soft:#262319;
+  --accent:#D2604F; --gold:#C9A961;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 15.5px/1.85 var(--sans);
+  -webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(70vw 60vh at 12% -10%,rgba(156,43,34,.055),transparent 60%),
+             radial-gradient(60vw 50vh at 92% 8%,rgba(154,123,63,.07),transparent 62%);}
+body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.32;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.42'/%3E%3C/svg%3E")}
+#bar{position:fixed;top:0;left:0;height:2px;width:0;z-index:60;background:var(--accent);transition:width .12s linear}
+
+/* ---------- shell ---------- */
+.wrap{position:relative;z-index:1;display:flex;align-items:flex-start;max-width:1240px;margin:0 auto}
+.rail{position:sticky;top:0;flex:0 0 268px;width:268px;height:100vh;overflow-y:auto;
+  padding:44px 26px 40px;border-right:1px solid var(--line);scrollbar-width:thin}
+.rail::-webkit-scrollbar{width:3px}.rail::-webkit-scrollbar-thumb{background:var(--line)}
+.brand{font:400 15px/1.5 var(--serif);color:var(--ink);letter-spacing:.04em}
+.brand small{display:block;margin-top:6px;font:500 9.5px/1.5 var(--sans);letter-spacing:.3em;
+  text-transform:uppercase;color:var(--faint)}
+#q{width:100%;margin:26px 0 6px;padding:8px 0;background:none;color:var(--ink);
+  border:0;border-bottom:1px solid var(--line);outline:none;font:400 13px/1.6 var(--sans)}
+#q::placeholder{color:var(--faint)}
+#q:focus{border-bottom-color:var(--accent)}
+nav{margin-top:18px}
+nav a{position:relative;display:block;padding:7px 0 7px 14px;color:var(--mid);text-decoration:none;
+  font-size:13px;line-height:1.55;opacity:0;animation:rise .55s cubic-bezier(.2,.7,.2,1) forwards;
+  animation-delay:calc(var(--i,0)*16ms + .25s);transition:color .18s,padding .18s}
+nav a:before{content:'';position:absolute;left:0;top:12px;width:5px;height:1px;background:var(--line);transition:.2s}
+nav a.lv3{font-size:12.5px;color:var(--faint);padding-left:26px}
+nav a:hover{color:var(--accent);padding-left:18px}
+nav a.on{color:var(--ink);font-weight:500}
+nav a.on:before{width:12px;background:var(--accent)}
+.railfoot{margin-top:26px;padding-top:18px;border-top:1px solid var(--line);
+  font-size:11px;letter-spacing:.1em;color:var(--faint)}
+
+/* ---------- content ---------- */
+main{flex:1;min-width:0;padding:0 0 200px}
+.sheet{max-width:730px;margin:0 auto;padding:0 44px;position:relative;z-index:1}
+.hero{padding:118px 0 64px;border-bottom:1px solid var(--line)}
+.hero>*{opacity:0;transform:translateY(16px);animation:rise .95s cubic-bezier(.2,.75,.2,1) forwards}
+.hero>*:nth-child(1){animation-delay:.05s}.hero>*:nth-child(2){animation-delay:.14s}
+.hero>*:nth-child(3){animation-delay:.24s}.hero>*:nth-child(4){animation-delay:.34s}
+.kicker{font:500 10px/1.6 var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--faint)}
+h1{font:300 clamp(36px,5.6vw,60px)/1.14 var(--serif);letter-spacing:.015em;margin:20px 0 0}
+h1 em{font-style:italic;color:var(--mid)}
+.sub{margin:26px 0 0;max-width:33em;font:italic 300 19px/1.75 var(--serif);color:var(--mid)}
+.herofoot{margin-top:34px;display:flex;gap:22px;flex-wrap:wrap;
+  font:400 11px/1.6 var(--sans);letter-spacing:.16em;color:var(--faint)}
+h2{position:relative;margin:104px 0 10px;padding-top:30px;border-top:1px solid var(--line);
+  font:300 27px/1.32 var(--serif);letter-spacing:.01em}
+h2:before{content:counter(sec,decimal-leading-zero);display:block;margin-bottom:14px;
+  font:500 10px/1 var(--sans);letter-spacing:.34em;color:var(--gold)}
+h3{font:500 20px/1.4 var(--serif);margin:0}
+h4{margin:26px 0 6px;font:500 10.5px/1 var(--sans);letter-spacing:.26em;color:var(--accent)}
+p{margin:10px 0}
+hr{border:0;border-top:1px solid var(--line);margin:26px 0}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(156,43,34,.28)}
+code{font-family:ui-monospace,'SFMono-Regular',Consolas,monospace;font-size:13px;
+  background:var(--panel-2);padding:1px 5px;border-radius:3px}
+pre{background:var(--panel-2);padding:14px 16px;border-radius:6px;overflow:auto;font-size:13px}
+.badge{display:inline-block;margin-right:6px;padding:1px 6px;border-radius:3px;
+  background:var(--panel-2);border:1px solid var(--line);font:500 10px/1.6 var(--sans);
+  letter-spacing:.1em;color:var(--faint);vertical-align:1px}
+
+/* quote */
+blockquote{margin:16px 0;padding:2px 0 2px 22px;border-left:2px solid var(--accent)}
+blockquote.cmt{border-left:2px dashed var(--gold)}
+.q{margin:0;font:italic 400 17.5px/1.72 var(--serif);color:var(--ink)}
+.q-tr{margin:7px 0 0;font:400 14.5px/1.8 var(--sans);color:var(--mid)}
+.q-extra{margin:7px 0 0;font-size:14.5px;color:var(--mid)}
+.q-loc{margin:9px 0 0;font:400 11px/1.6 var(--sans);letter-spacing:.1em;color:var(--faint)}
+
+/* lists */
+ul,ol{margin:10px 0;padding:0;list-style:none}
+li{position:relative;padding-left:22px;margin:6px 0}
+ul>li:before{content:'';position:absolute;left:2px;top:.85em;width:8px;height:1px;background:var(--line)}
+ol{counter-reset:o}
+ol>li{counter-increment:o}
+ol>li:before{content:counter(o,decimal-leading-zero);position:absolute;left:0;top:0;
+  font:500 11px/1.9 var(--sans);letter-spacing:.06em;color:var(--gold)}
+ul ul,ol ol,ul ol,ol ul{margin:4px 0}
+
+/* table */
+.tw{overflow-x:auto;margin:20px 0}
+table{width:100%;border-collapse:collapse;font:400 14px/1.65 var(--sans)}
+th{text-align:left;padding:0 18px 10px 0;border-bottom:1px solid var(--line);
+  font:500 9.5px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--faint);white-space:nowrap}
+td{padding:11px 18px 11px 0;border-bottom:1px solid var(--line-soft);vertical-align:top}
+tbody tr{transition:background .15s}
+tbody tr:hover td{background:var(--panel-2)}
+
+/* chapter card */
+.chap{border-top:1px solid var(--line-soft);margin-top:26px;padding-top:20px}
+.chap>.hd{display:flex;align-items:baseline;gap:16px;cursor:pointer;user-select:none}
+.chap>.hd .num{flex:0 0 42px;font:300 24px/1 var(--serif);color:var(--gold);letter-spacing:.02em}
+.chap>.hd .num.dot:before{content:'';display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold);vertical-align:.35em}
+.chap>.hd .t{flex:1;font:500 19px/1.45 var(--serif)}
+.chap>.hd .tg{flex:0 0 auto;font:400 10px/1 var(--sans);letter-spacing:.2em;color:var(--faint)}
+.chap>.hd:hover .t{color:var(--accent)}
+.chap>.bd{max-height:0;overflow:hidden;opacity:0;transition:max-height .42s cubic-bezier(.4,0,.2,1),opacity .3s}
+.chap.open>.bd{max-height:none;opacity:1}
+.chap.open>.bd.openh{max-height:none}
+
+/* reveal + search + answer */
+.rv{opacity:0;transform:translateY(12px);transition:opacity .6s,transform .6s}
+.rv.in{opacity:1;transform:none}
+mark{background:rgba(201,169,97,.34);color:inherit;padding:0 1px;border-radius:2px}
+.ans{position:relative;cursor:pointer;filter:blur(6px);transition:filter .25s;user-select:none}
+.ans.open{filter:none}
+.ans:after{content:'点击展开';position:absolute;right:2px;bottom:-2px;padding:0 6px;
+  background:var(--panel);font:400 10px/1.7 var(--sans);letter-spacing:.12em;color:var(--faint)}
+.ans.open:after{content:''}
+.hide{display:none !important}
+
+/* toolbar */
+.tools{position:sticky;top:0;z-index:20;display:flex;gap:20px;align-items:center;
+  margin:0 0 -1px;padding:14px 44px;background:var(--paper);background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:blur(10px);border-bottom:1px solid transparent}
+.tools button{background:none;border:0;padding:0;cursor:pointer;color:var(--faint);
+  font:400 10px/1 var(--sans);letter-spacing:.2em;transition:color .18s}
+.tools button:hover{color:var(--accent)}
+.tools .sp{flex:1}
+
+@keyframes rise{to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;opacity:1!important}}
+@media(max-width:960px){
+  .wrap{display:block}.rail{position:static;width:auto;height:auto;border-right:0;
+    border-bottom:1px solid var(--line);padding:24px 22px}
+  .sheet{padding:0 22px}.tools{padding:12px 22px}.hero{padding:56px 0 40px}h2{margin-top:64px}
+}
+@media print{
+  body::before,body::after,#bar,.rail,.tools{display:none!important}
+  body{background:#fff}.chap>.bd{max-height:none!important;opacity:1!important}
+  .ans{filter:none!important}.hero{padding:0 0 24px}h2{margin-top:36px;page-break-after:avoid}
+  .chap{page-break-inside:avoid}
+}
+</style></head><body>
+<div id="bar"></div>
+<div class="wrap">
+<aside class="rail">
+  <div class="brand">聪明的投资者》精读回顾<small>Reading Review</small></div>
+  <input id="q" placeholder="检索关键词…" autocomplete="off">
+  <nav id="nav"></nav>
+  <div class="railfoot">按 <b>/</b> 聚焦检索 · <b>P</b> 导出 PDF</div>
+</aside>
+<main id="main"><div class="sheet"><h1>《聪明的投资者》精读回顾</h1>
+<blockquote><p class="q">这不是一本教你"怎么赚快钱"的书，而是一本教你"怎么不亏大钱"的书——它把投资从预测未来的游戏，改造成了管理价格与价值之差的手艺。</p></blockquote>
+<h2 id="h2">一、书籍基本信息</h2>
+<div class="table-wrap"><table><thead><tr><th>项目</th><th>内容</th></tr></thead><tbody><tr><td>书名</td><td>聪明的投资者 / <em>The Intelligent Investor</em></td></tr><tr><td>作者</td><td>本杰明·格雷厄姆（Benjamin Graham，1894–1976），第 4 版由贾森·兹威格（Jason Zweig）逐章加注点评</td></tr><tr><td>出版信息</td><td>首版 1949；第 4 版修订于 1971–1972 年、1973 年出版；巴菲特作序</td></tr><tr><td>体裁</td><td>投资 / 价值投资</td></tr><tr><td>篇幅</td><td>导言 + 20 章 + 后记 + 7 个附录，中译约 60 万字</td></tr><tr><td>本次覆盖</td><td>导言 + 第 1–20 章 + 后记（全 22 节）</td></tr></tbody></table></div>
+<p><strong>一句话定位</strong>：给普通个人投资者一套"不依赖预测、只依赖纪律"的操作框架，核心是把股票当生意的一小部分，只在价格显著低于价值时买。</p>
+<p><strong>阅读价值</strong>：</p>
+<ol><li>建立"投资 vs 投机"的判据，从此能判断自己每一笔操作到底属于哪一类。</li><li>给出两类人（防御型/积极型）各自的完整组合规则，可直接照做。</li><li>不适合想找选股代码、短期择时方法的人——书里刻意没有这些。</li></ol>
+<h2 id="h7">二、全书结构鸟瞰</h2>
+<div class="table-wrap"><table><thead><tr><th>部分</th><th>章节</th><th>核心命题</th></tr></thead><tbody><tr><td>总纲</td><td>导言</td><td>投资成败主要取决于性格与纪律，不是智商</td></tr><tr><td>定义</td><td>第 1 章 投资与投机</td><td>先分清你在投资还是在投机</td></tr><tr><td>环境</td><td>第 2 章 投资者与通货膨胀</td><td>股票只能部分对冲通胀，靠股债固定比例应对</td></tr><tr><td>环境</td><td>第 3 章 一个世纪的股市历史</td><td>历史给的是波动区间参照，不是预测工具</td></tr><tr><td>策略·防御</td><td>第 4 章 防御型投资者的组合策略</td><td>股债各 50%，区间 25%–75%</td></tr><tr><td>策略·防御</td><td>第 5 章 防御型投资者与普通股</td><td>防御型可以买股，但要买得"无聊"</td></tr><tr><td>策略·积极</td><td>第 6 章 积极型：被动的方法</td><td>先学会排除什么，再谈买什么</td></tr><tr><td>策略·积极</td><td>第 7 章 积极型：主动的方法</td><td>买便宜股、特殊情形、套利</td></tr><tr><td>心态</td><td>第 8 章 投资者与市场波动</td><td>市场先生是来服务你的，不是来指导你的</td></tr><tr><td>工具</td><td>第 9 章 基金投资</td><td>费用是唯一确定会发生的成本</td></tr><tr><td>工具</td><td>第 10 章 投资者与投资顾问</td><td>先分清顾问是卖方还是买方</td></tr><tr><td>分析</td><td>第 11 章 证券分析的一般方法</td><td>先定安全标准，再谈预期收益</td></tr><tr><td>分析</td><td>第 12 章 对每股收益的思考</td><td>用多年平均盈利，别信单年数字</td></tr><tr><td>分析</td><td>第 13 章 四家上市公司的比较</td><td>同行业对比才能看出估值差异</td></tr><tr><td>选股</td><td>第 14 章 防御型投资者的股票选择</td><td>七条硬性筛选标准</td></tr><tr><td>选股</td><td>第 15 章 积极型投资者的股票选择</td><td>便宜股的两类来源与检验法</td></tr><tr><td>工具</td><td>第 16 章 可转换证券及认股权证</td><td>看似两头占便宜，实则两头受制</td></tr><tr><td>案例</td><td>第 17 章 四个非常有启发的案例</td><td>会计手段与增长溢价如何制造亏损</td></tr><tr><td>案例</td><td>第 18 章 对八组公司的比较</td><td>同行业配对，看市场定价差在哪</td></tr><tr><td>治理</td><td>第 19 章 股东与管理层：股息政策</td><td>低效管理层是股东最大的隐性成本</td></tr><tr><td>核心</td><td>第 20 章 作为投资中心思想的"安全边际"</td><td>全书全部论证的落点</td></tr><tr><td>收束</td><td>后记</td><td>市场会自我纠错，但需要时间</td></tr><tr><td>附</td><td>附录 1</td><td>巴菲特《格雷厄姆-多德部落的超级投资者们》</td></tr></tbody></table></div>
+<h2 id="h9">三、章节精读</h2>
+<h3 id="h10">导言 · 本书的目的</h3>
+<p><strong>一句话主旨</strong>：这本书要给的不是一个收益率，而是一套让你能长期活下来的行为原则。</p>
+<h4 id="h12">金句 1</h4>
+<blockquote><p class="q">The investor's chief problem — and even his worst enemy — is likely to be himself.</p><p class="q-tr">投资者最主要的问题，甚至他最可怕的敌人，很可能就是他自己。</p><p class="q-loc">—— 位置：导言（第 4 版）</p></blockquote>
+<p><strong>释义</strong>：摧毁收益的多半不是市场，而是投资者自己在贪婪与恐惧中的操作。<br><strong>为什么重要</strong>：它把全书的重心从"分析公司"移到了"管理自己"——后面每一章的规则，本质上都是在替你挡住你自己。</p>
+<h4 id="h15">金句 2</h4>
+<blockquote><p class="q">To achieve satisfactory investment results is easier than most people realize; to achieve superior results is harder than it looks.</p><p class="q-tr">取得令人满意的投资结果，比大多数人想象的容易；取得超越常人的结果，比看上去难得多。</p><p class="q-loc">—— 位置：导言（第 4 版）</p></blockquote>
+<p><strong>释义</strong>：拿到市场平均收益是低门槛的事；持续跑赢是极高门槛的事。<br><strong>为什么重要</strong>：它一上来就压低预期——这本书的目标函数是"满意"，不是"卓越"，后面防御型投资者的整套设计都建立在这个预期之上。</p>
+<h4 id="h18">金句 3</h4>
+<blockquote><p class="q">You must thoroughly analyze a company, and the soundness of its underlying businesses, before you buy its stock; you must deliberately protect yourself against serious losses; you must aspire to "adequate," not extraordinary, performance.</p><p class="q-tr">买股票前必须彻底分析公司及其业务的稳健性；必须主动防范重大亏损；必须追求"够用"的业绩，而不是非凡的业绩。</p><p class="q-loc">—— 位置：导言（第 4 版）</p></blockquote>
+<p><strong>释义</strong>：三条动作指令：分析 → 防亏 → 接受平庸收益。<br><strong>为什么重要</strong>：这是全书的"使用说明书"，第 20 章的安全边际就是第二条的技术实现。</p>
+<h4 id="h21">章节总结</h4>
+<ul><li><strong>核心主题</strong>：界定本书的服务对象（个人投资者）、目标（稳健而非暴富）与方法（原则 + 纪律，而非预测）。</li><li><strong>主要论点</strong>：<<ol><li>本书不为投机者而写——投机者的目标是猜别人明天怎么定价，这不是任何书能教的。</li><li>"聪明"指的是性格与纪律，不是智商。</li><li>投资者的"聪明"体现在三个动作上：分析、防亏、接受够用的回报。</li></ol></li><li><strong>关键脉络</strong>：明确不服务的对象（投机者）→ 重新定义"聪明"（性格 &gt; 脑力）→ 给出三条可执行指令。</li><li><strong>关键概念</strong>：防御型投资者（defensive investor）/ 积极型投资者（enterprising investor）——<strong>按意愿与投入时间自选的角色，不是天生的身份</strong>。</li><li><strong>与全书的关联</strong>：导言提出的三条指令分别对应：第 11–18 章（分析）、第 4–7 章与第 20 章（防亏）、第 1–3 章（预期管理）。</li></ul>
+<h3 id="h23">第 1 章 · 投资与投机：聪明投资者的预期收益</h3>
+<p><strong>一句话主旨</strong>：用一句话划清投资与投机的界限，然后告诉你绝大多数人亏钱是因为"以为自己在投资"。</p>
+<h4 id="h25">金句 1</h4>
+<blockquote><p class="q">An investment operation is one which, upon thorough analysis, promises safety of principal and an adequate return. Operations not meeting these requirements are speculative.</p><p class="q-tr">投资操作，是指经过详尽分析后，承诺本金安全并提供满意回报的行为；不满足这些要求的操作即为投机。</p><p class="q-loc">—— 位置：第 1 章（该定义最早见于 1934 年《证券分析》）</p></blockquote>
+<p><strong>释义</strong>：判断标准只有三条——是否做了详尽分析、本金是否安全、回报是否满意（而非超额）。<br><strong>为什么重要</strong>：这是全书第一块基石。注意它不看你买了什么标的，只看你<strong>怎么做的</strong>：买蓝筹也能是投机，买垃圾债也能是投资。</p>
+<h4 id="h28">金句 2</h4>
+<blockquote><p class="q">The most realistic distinction between the investor and the speculator is found in their attitude toward stock-market movements. The speculator's primary interest lies in anticipating and profiting from market fluctuations. The investor's primary interest lies in acquiring and holding suitable securities at suitable prices.</p><p class="q-tr">投资者与投机者最实际的区别，在于他们对市场波动的态度。投机者的主要兴趣在于预测市场波动并从中获利；投资者的主要兴趣在于以合适的价格取得并持有合适的证券。</p><p class="q-loc">—— 位置：第 1 章</p></blockquote>
+<p><strong>释义</strong>：区别不在品种，在你盯的是"价格会怎么动"还是"这个价格值不值"。<br><strong>为什么重要</strong>：它把"投资"定义成了一种<strong>行为</strong>而非一类<strong>资产</strong>，为第 8 章的市场先生寓言埋下伏笔。</p>
+<h4 id="h31">金句 3</h4>
+<blockquote><p class="q">People who invest make money for themselves; people who speculate make money for their brokers.</p><p class="q-tr">投资的人替自己赚钱，投机的人替券商赚钱。</p><p class="q-loc">—— 位置：第 1 章（格雷厄姆在演讲与著作中反复使用）</p></blockquote>
+<p><strong>释义</strong>：频繁交易的摩擦成本是确定的流出，收益则是不确定的。<br><strong>为什么重要</strong>：从成本结构而非道德角度否定了频繁交易，与第 9、10 章关于费用的论证一致。</p>
+<h4 id="h34">章节总结</h4>
+<ul><li><strong>核心主题</strong>：投资与投机的区别不在标的，而在"是否基于详尽分析、是否承诺本金安全、是否期待满意而非超额的回报"。</li><li><strong>主要论点</strong>：<<ol><li>定义投资看的是操作流程，不是买入的品种。</li><li>区分投资者的实际标准是"对市场波动的态度"。</li><li>非专业者进入投机领域的三种危险：以为自己在投资、缺乏能力却认真投机、投入超过承受能力的钱（尤其是用保证金）。</li></ol></li><li><strong>关键脉络</strong>：给出定义（分析/本金/回报）→ 落到态度差异（盯价格 vs 盯价值）→ 列举三种典型误伤 → 引出防御型与积极型的角色选择。</li><li><strong>关键概念</strong>：投资操作（investment operation）、投机、保证金交易（用杠杆即等于投机）。</li><li><strong>与全书的关联</strong>：本章的定义在第 20 章被"安全边际"具体化——安全边际就是让"本金安全"这条可被量化检验的手段。</li></ul>
+<h3 id="h36">第 2 章 · 投资者与通货膨胀</h3>
+<p><strong>一句话主旨</strong>：股票对通胀的对冲效果远不如宣传得可靠，正确做法是用固定的股债比例应对，而不是预测通胀。</p>
+<h4 id="h38">金句 1</h4>
+<blockquote><p class="q"><span class="badge">转述</span> 作者的核心主张是：通货膨胀本身并不必然推高股价，真正把通胀变成牛市燃料的，是投资者面对通胀时的心理倾向。</p><p class="q-loc">—— 位置：第 2 章（转述，未能核对英文原句）</p></blockquote>
+<p><strong>释义</strong>：通胀与股价之间不存在稳定的机械关系，中间隔着人的预期。<br><strong>为什么重要</strong>：它否定了"因为会通胀所以必须满仓股票"这一常见推论——那是把宏观判断直接当成了仓位指令。</p>
+<h4 id="h41">观点提炼（转述，非原文）</h4>
+<ul><li>固定收益类资产在通胀中受损是确定的。</li><li>但"股票抗通胀"缺乏稳定的历史支持：高通胀期往往伴着糟糕的股票回报。</li><li>可行做法：维持股债混合的固定比例，随价格变动再平衡，不因通胀预期改变配置。</li></ul>
+<h4 id="h43">章节总结</h4>
+<ul><li><strong>核心主题</strong>：评估股票能否对冲通胀，结论是"部分有效、不可依赖"。</li><li><strong>主要论点</strong>：<<ol><li>通胀对固定收益持有者的伤害是确定的。</li><li>公司资产随通胀升值的逻辑听起来合理，但盈利与通胀的实际关联远弱于理论。</li><li>因此通胀不构成改变配置结构的理由。</li></ol></li><li><strong>关键脉络</strong>：提出问题（通胀伤债）→ 检验流行答案（股票抗通胀）→ 发现证据不支持 → 退回保守方案（固定比例 + 再平衡）。</li><li><strong>关键概念</strong>：购买力、股债再平衡、通胀预期与通胀实际之差。</li><li><strong>与全书的关联</strong>：直接支撑第 4 章"25%–75%"的股债区间——既然无法预测通胀，就用机械比例替代判断。</li></ul>
+<h3 id="h45">第 3 章 · 一个世纪的股市历史：1972 年年初的股价水平</h3>
+<p><strong>一句话主旨</strong>：百年数据只能给出"价格区间"的参照，不能用来预测下一次涨跌。</p>
+<h4 id="h47">观点提炼（转述，非原文）</h4>
+<ul><li>格雷厄姆用长周期数据说明：股价水平有其历史区间，脱离区间的时刻肉眼可辨。</li><li>但历史区间是<strong>参照系</strong>不是<strong>预测器</strong>——它告诉你"现在贵不贵"，不告诉你"明天涨不涨"。</li><li>这一章的价值在于提供尺度感，而不是提供择时信号。</li></ul>
+<h4 id="h49">章节总结</h4>
+<ul><li><strong>核心主题</strong>：用百年股市数据校准"什么价格算高、什么算低"的尺度。</li><li><strong>主要论点</strong>：<<ol><li>长期数据能识别出极端的高估与低估区间。</li><li>但这种识别是事后的、模糊的，不足以支撑择时。</li><li>数据的用途是约束自己的出价，不是预测市场。</li></ol></li><li><strong>关键脉络</strong>：摆数据（百年股价）→ 找规律（区间特征）→ 划边界（只用于估值参照，不用于预测）。</li><li><strong>关键概念</strong>：历史价格区间、市场整体估值水平。</li><li><strong>与全书的关联</strong>：为第 8 章"在价格大幅偏离时行动、其余时间忽略市场"提供经验依据。</li></ul>
+<h3 id="h51">第 4 章 · 防御型投资者的投资组合策略</h3>
+<p><strong>一句话主旨</strong>：防御型投资者的组合规则极其简单——股债各半，比例恒定，不因看法改变。</p>
+<h4 id="h53">金句 1</h4>
+<blockquote><p class="q">We have suggested as a fundamental guiding rule that the investor should never have less than 25% or more than 75% of his funds in common stocks, with a consequent inverse range of 75% to 25% in bonds. The standard division should be an even one, or 50–50, between the two major portions.</p><p class="q-tr">我们建议的基本规则是：投资者投入普通股的资金不应低于 25%、不应高于 75%，债券相应地在 75% 到 25% 之间反向变动。标准配置是两者各占 50%。</p><p class="q-loc">—— 位置：第 4 章（置信度：中，措辞可能随版本略有出入）</p></blockquote>
+<p><strong>释义</strong>：用一个机械的区间替代"我认为后市会怎样"的判断。<br><strong>为什么重要</strong>：这是全书最容易被忽视、却最可执行的一条规则——它用制度设计绕开了第 8 章所说的"投资者最大的敌人是自己"。</p>
+<h4 id="h56">观点提炼（转述，非原文）</h4>
+<ul><li>防御型的定义：求省心、求安全、不愿花时间研究。</li><li>组合只需两类资产：高等级债券（或等价物）+ 分散化的普通股。</li><li>唯一需要主动做的是"再平衡"：比例偏离后调回，其余时间不动。</li></ul>
+<h4 id="h58">章节总结</h4>
+<ul><li><strong>核心主题</strong>：给"不想费心的人"一个不需要判断就能长期执行的组合方案。</li><li><strong>主要论点</strong>：<<ol><li>防御型投资者的目标是不犯大错，不是跑赢。</li><li>股债 50/50 是默认解，25%–75% 是允许的浮动区间。</li><li>越简单的规则越能长期执行，复杂规则的主要风险是被放弃。</li></ol></li><li><strong>关键脉络</strong>：定义防御型（省心优先）→ 给出默认配置（50/50）→ 给出浮动区间（25–75）→ 用再平衡替代预测。</li><li><strong>关键概念</strong>：防御型投资者、再平衡、股债比例。</li><li><strong>与全书的关联</strong>：本章是"防亏"指令的工程实现；第 5 章接着回答"那股票部分具体买什么"。</li></ul>
+<h3 id="h60">第 5 章 · 防御型投资者与普通股</h3>
+<p><strong>一句话主旨</strong>：防御型投资者完全可以买股票，但必须买得足够"无聊"——大、稳、分红、便宜。</p>
+<h4 id="h62">观点提炼（转述，非原文）</h4>
+<ul><li>防御型持有普通股是合理的（对抗通胀、分享经济增长），但必须附加严格条件。</li><li>四个约束方向：足够大的规模、足够强的财务状况、稳定的盈利与分红记录、适中的估值。</li><li>成长股不是防御型投资者该碰的东西：为未来付溢价本身就是判断，而判断正是防御型要规避的。</li></ul>
+<h4 id="h64">章节总结</h4>
+<ul><li><strong>核心主题</strong>：把防御型投资者可以持有的普通股限定在一个低风险子集内。</li><li><strong>主要论点</strong>：<<ol><li>持有普通股是允许的，但"买什么"必须受限。</li><li>高等级、稳定分红、估值适中是三条主线。</li><li>为增长付出高价，把防御型投资者悄悄变成了投机者。</li></ol></li><li><strong>关键脉络</strong>：回答"能不能买股"（能）→ 限定"能买什么样的股"（大/稳/分红/便宜）→ 排除成长股溢价。</li><li><strong>关键概念</strong>：规模、财务稳健、股息记录、估值上限。</li><li><strong>与全书的关联</strong>：本章是原则层，第 14 章把它落成七条可量化的选股标准。</li></ul>
+<h3 id="h66">第 6 章 · 积极型投资者的证券组合策略：被动的方法</h3>
+<p><strong>一句话主旨</strong>：积极型投资者的第一步不是"买什么更聪明"，而是"先把哪些东西排除掉"。</p>
+<h4 id="h68">金句 1</h4>
+<blockquote><p class="q">The chief losses to investors come from the purchase of low-quality securities at times of favorable business conditions.</p><p class="q-tr">投资者最大的亏损，来自于在景气时期买入低质量的证券。</p><p class="q-loc">—— 位置：第 6 章（消极排除部分；置信度：中，章节归属在不同版本中可能有出入）</p></blockquote>
+<p><strong>释义</strong>：亏损的高发场景不是熊市，是牛市里对劣质资产的追捧。<br><strong>为什么重要</strong>：它把风险归因从"市场下跌"转到"买入时的资产质量 × 买入时的景气度"——这是一个可自控的变量。</p>
+<h4 id="h71">观点提炼（转述，非原文）</h4>
+<ul><li>"被动的方法"= 消极排除：先把明显不该碰的领域划出去。</li><li>排除清单大致包括：低等级债券与优先股（收益高但安全性不足）、高价成长股、可转换证券与认股权证、新发行股票。</li><li>排除法的意义：能力圈之外的钱不赚，比在能力圈内多赚一点更重要。</li></ul>
+<h4 id="h73">章节总结</h4>
+<ul><li><strong>核心主题</strong>：积极型投资者的第一道防线是一张"不碰清单"。</li><li><strong>主要论点</strong>：<<ol><li>主动策略的第一步是排除，不是精选。</li><li>亏损主要来自景气期的低质量买入，而非熊市本身。</li><li>收益与安全不是权衡关系——低质量证券的高收益是幻觉，是被定价的风险。</li></ol></li><li><strong>关键脉络</strong>：定义"被动的方法"（排除）→ 论证为什么先排除（亏损来源）→ 列出排除清单。</li><li><strong>关键概念</strong>：消极排除法、低等级债券、新发行股票。</li><li><strong>与全书的关联</strong>：本章与第 7 章构成一对（先排除后寻找）；第 16 章对可转换证券与权证的展开，就是这张排除清单的技术说明。</li></ul>
+<h3 id="h75">第 7 章 · 积极型投资者的证券组合策略：主动的方法</h3>
+<p><strong>一句话主旨</strong>：排除之后剩下三类可主动出击的机会：便宜股、特殊情形、套利。</p>
+<h4 id="h77">金句 1</h4>
+<blockquote><p class="q">Buy not on optimism, but on arithmetic.</p><p class="q-tr">买入不要基于乐观，而要基于算术。</p><p class="q-loc">—— 位置：第 7 章（置信度：中，常被引用）</p></blockquote>
+<p><strong>释义</strong>：决策依据应该是可算出来的价格与价值之差，不是对前景的相信程度。<br><strong>为什么重要</strong>：一句话区分了"研究过的投机"和"投资"——研究的深度不能替代出价的保守。</p>
+<h4 id="h80">观点提炼（转述，非原文）</h4>
+<ul><li>便宜股（bargain issues）：分析显示其价值显著高于售价，通常出现在被冷落、被误解、或暂时受挫的公司。</li><li>特殊情形（workouts / special situations）：并购、清算、重组等事件驱动的确定性收益。</li><li>套利：依赖的是契约条款的确定性，不是对价格方向的判断。</li><li>共同点：收益来源是"价格与价值的差"或"条款的确定性"，都不依赖预测。</li></ul>
+<h4 id="h82">章节总结</h4>
+<ul><li><strong>核心主题</strong>：积极型投资者可以做什么——三类不依赖预测的机会。</li><li><strong>主要论点</strong>：<<ol><li>主动策略的合法性来自"可计算的差价"，不是"更准的预测"。</li><li>便宜股来自市场的冷落，而不是公司的优秀。</li><li>特殊情形与套利的收益来自条款与流程，与市场方向无关。</li></ol></li><li><strong>关键脉络</strong>：先立规矩（基于算术）→ 展开第一类（便宜股）→ 展开第二类（特殊情形）→ 展开第三类（套利）。</li><li><strong>关键概念</strong>：便宜股、特殊情形、套利、清算价值。</li><li><strong>与全书的关联</strong>：本章是"主动"的边界，第 15 章把它落成具体的选股方法；三类的共同约束仍是第 20 章的安全边际。</li></ul>
+<h3 id="h84">第 8 章 · 投资者与市场波动</h3>
+<p><strong>一句话主旨</strong>：市场先生的报价只在你有利时才该被使用——他是来服务你的，不是来指导你的。</p>
+<h4 id="h86">金句 1</h4>
+<blockquote><p class="q">Basically, price fluctuations have only one significant meaning for the real investor. They provide him with an opportunity to buy wisely when prices fall sharply and to sell wisely when they advance a great deal. At other times he will do better if he forgets about the stock market and pays attention to his dividend returns and to the results of operations of his companies.</p><p class="q-tr">从根本上讲，价格波动对真正的投资者只有一个重要意义：当价格大幅下跌后，给他提供买入的机会；当价格大幅上涨后，给他提供卖出的机会。其他时候，他如果忘记股市、把注意力放在股息收入和公司经营结果上，会做得更好。</p><p class="q-loc">—— 位置：第 8 章</p></blockquote>
+<p><strong>释义</strong>：波动不是风险本身，而是机会的两个端点；中间地带应当被忽略。<br><strong>为什么重要</strong>：这是全章的操作总纲——它把"要不要看盘"这个问题，转换成了"现在是不是极端价格"这个问题。</p>
+<h4 id="h89">金句 2</h4>
+<blockquote><p class="q">Imagine that in some private business you own a small share that cost you $1,000. One of your partners, named Mr. Market, is very obliging indeed. Every day he tells you what he thinks your interest is worth and furthermore offers either to buy you out or to sell you an additional interest on that basis.</p><p class="q-tr">设想你在某家私人企业里拥有一小份权益，成本 1000 美元。你的一位合伙人叫"市场先生"，他非常热心——每天他都会告诉你，他认为你的权益值多少钱，并且提出按这个价格买入你的份额或再卖给你一份。</p><p class="q-loc">—— 位置：第 8 章（市场先生寓言开头）</p></blockquote>
+<p><strong>释义</strong>：把市场人格化成一个情绪不稳定的合伙人，他的报价只在他明显错得离谱时有用。<br><strong>为什么重要</strong>：这是投资史上最有影响力的比喻之一，它一次性解决了"为什么不该跟随市场"——因为那等于把定价权交给一个躁郁症患者。</p>
+<h4 id="h92">金句 3</h4>
+<blockquote><p class="q">The intelligent investor is a realist who sells to optimists and buys from pessimists.</p><p class="q-tr">聪明的投资者是现实主义者——他向乐观者卖出，从悲观者手中买入。</p><p class="q-loc">—— 位置：第 8 章</p></blockquote>
+<p><strong>释义</strong>：你的交易对手的情绪，是你收益的来源。<br><strong>为什么重要</strong>：它点出了收益的零和来源：超额收益来自别人的错误定价，因此逆向不是性格偏好，是收益机制的要求。</p>
+<h4 id="h95">金句 4</h4>
+<blockquote><p class="q">Individuals who cannot master their emotions are ill-suited to profit from the investment process.</p><p class="q-tr">无法驾驭自己情绪的人，不适合从投资过程中获利。</p><p class="q-loc">—— 位置：第 8 章（置信度：中高）</p></blockquote>
+<p><strong>释义</strong>：情绪控制不是加分项，是准入条件。<br><strong>为什么重要</strong>：把导言"最大的敌人是自己"落到了可检验的准入标准上。</p>
+<h4 id="h98">金句 5</h4>
+<blockquote><p class="q">The stock investor is neither right nor wrong because others agreed or disagreed with him; he is right because his facts and analysis are right.</p><p class="q-tr">股票投资者并不因为别人的赞同或反对而对错；他之所以正确，是因为他的事实与分析正确。</p><p class="q-loc">—— 位置：第 8 章（置信度：中高）</p></blockquote>
+<p><strong>释义</strong>：对错的裁判是事实，不是共识。<br><strong>为什么重要</strong>：它给了逆向投资者一个自检标准——逆向本身不构成正确，数据才构成。</p>
+<h4 id="h101">金句 6（兹威格点评，非格雷厄姆原句）</h4>
+<blockquote><p class="q">The market is a pendulum that forever swings between unsustainable optimism (which makes stocks too expensive) and unjustified pessimism (which makes them too cheap).</p><p class="q-tr">市场是一枚钟摆，永远在难以持续的乐观（使股票过贵）与毫无根据的悲观（使股票过便宜）之间摆动。</p><p class="q-loc">—— 位置：第 8 章点评（贾森·兹威格，第 4 版）</p></blockquote>
+<p><strong>释义</strong>：市场的中枢是价值，两端是情绪的过度伸展。<br><strong>为什么重要</strong>：为格雷厄姆的定性描述补了一个机制解释，也给出了"极端"的识别线索。</p>
+<h4 id="h104">章节总结</h4>
+<ul><li><strong>核心主题</strong>：如何对待价格波动——利用极端，忽略其余。</li><li><strong>主要论点</strong>：<<ol><li>波动对投资者的唯一意义：暴跌提供买点，暴涨提供卖点。</li><li>市场先生寓言：报价是给你用的，不是给你听的。</li><li>情绪控制是投资能力的组成部分，且不可外包。</li></ol></li><li><strong>关键脉络</strong>：给出总纲（波动只有一个意义）→ 用寓言解释（市场先生）→ 落到行为要求（逆向 + 情绪控制）→ 补机制（钟摆）。</li><li><strong>关键概念</strong>：市场先生、内在价值 vs 市场价格、逆向、钟摆。</li><li><strong>与全书的关联</strong>：本章是"心态层"的核心，第 20 章是"技术层"的核心——安全边际就是判断"报价是否错得离谱"的尺子。</li></ul>
+<h3 id="h106">第 9 章 · 基金投资</h3>
+<p><strong>一句话主旨</strong>：基金能买，但费用是唯一确定会发生的成本，而业绩是不确定的。</p>
+<h4 id="h108">金句 1（兹威格点评，非格雷厄姆原句）</h4>
+<blockquote><p class="q">Performance comes, performance goes. Fees never falter.</p><p class="q-tr">业绩来了又走，费用从不动摇。</p><p class="q-loc">—— 位置：第 9 章点评（贾森·兹威格，第 4 版）</p></blockquote>
+<p><strong>释义</strong>：在基金投资中，唯一可以确定的变量是成本。<br><strong>为什么重要</strong>：它把"选哪只基金"这个难题，降维成了"付多少成本"这个可比较的问题——这是本章可直接执行的结论。</p>
+<h4 id="h111">观点提炼（转述，非原文）</h4>
+<ul><li>基金解决了分散化问题，但引入了代理成本与费用问题。</li><li>业绩不可持续是常态，"去年的冠军"是极强的负向筛选条件。</li><li>指数基金是大多数人的默认解：它把费用压到最低，同时放弃跑赢的企图。</li></ul>
+<h4 id="h113">章节总结</h4>
+<ul><li><strong>核心主题</strong>：如何在"自己选股"和"交给基金"之间做选择。</li><li><strong>主要论点</strong>：<<ol><li>基金对没有时间研究的人是合理工具。</li><li>但费用与业绩的分布不对称：费用确定，超额业绩不可持续。</li><li>因此成本是选择基金时的第一筛选条件。</li></ol></li><li><strong>关键脉络</strong>：承认基金的用途（分散）→ 指出代价（费用 + 代理）→ 否定业绩追逐 → 落到低成本方案。</li><li><strong>关键概念</strong>：费用率、业绩持续性、指数基金、代理成本。</li><li><strong>与全书的关联</strong>：与第 10 章（顾问）共同处理"把钱交给别人"的问题；判断标准仍是导言的"追求满意而非超额"。</li></ul>
+<h3 id="h115">第 10 章 · 投资者与投资顾问</h3>
+<p><strong>一句话主旨</strong>：先分清对方是"卖方"还是"买方"，再说要不要听他的。</p>
+<h4 id="h117">金句 1（兹威格点评，非格雷厄姆原句）</h4>
+<blockquote><p class="q">If fees consume more than 1% of your assets annually, you should probably shop for another adviser.</p><p class="q-tr">如果费用每年吞掉你资产的 1% 以上，你大概该换一个顾问了。</p><p class="q-loc">—— 位置：第 10 章点评（贾森·兹威格，第 4 版）</p></blockquote>
+<p><strong>释义</strong>：给了一个可执行的成本上限。<br><strong>为什么重要</strong>：把"这个顾问值不值"这个主观问题，变成了可计算的门槛。</p>
+<h4 id="h120">观点提炼（转述，非原文）</h4>
+<ul><li>证券销售人员与投资顾问是两种角色，收费方式不同，利益立场不同。</li><li>投资者若主要依赖他人建议，就必须把投资范围限制在标准、保守的形式上。</li><li>顾问的真正价值可以是"阻止你做蠢事"，而不只是"推荐好标的"。</li></ul>
+<h4 id="h122">章节总结</h4>
+<ul><li><strong>核心主题</strong>：投资者与外部建议提供者的关系边界。</li><li><strong>主要论点</strong>：<<ol><li>先识别对方的角色与收费方式，再决定信任程度。</li><li>依赖外部建议时，投资范围必须同步收窄到保守区间。</li><li>成本是评判顾问的硬指标。</li></ol></li><li><strong>关键脉络</strong>：分类（销售 vs 顾问）→ 定边界（依赖建议就收窄范围）→ 给标准（费用门槛）。</li><li><strong>关键概念</strong>：卖方/买方立场、费用结构、保守投资形式。</li><li><strong>与全书的关联</strong>：与第 9 章共同构成"外包决策"章节，结论都指向"成本优先、承诺存疑"。</li></ul>
+<h3 id="h124">第 11 章 · 普通投资者证券分析的一般方法</h3>
+<p><strong>一句话主旨</strong>：分析的正确顺序是先设安全底线，再谈收益预期——不是反过来。</p>
+<h4 id="h126">金句 1</h4>
+<blockquote><p class="q">The value of any investment is, and always must be, a function of the price you pay for it.</p><p class="q-tr">任何投资的价值，过去是、将来也必然是你所付价格的函数。</p><p class="q-loc">—— 位置：第 11 章（置信度：中高）</p></blockquote>
+<p><strong>释义</strong>：同一个资产在不同价格下是完全不同的投资。<br><strong>为什么重要</strong>：它否定了"好公司 = 好投资"的直觉，为后续所有估值章节定调。</p>
+<h4 id="h129">观点提炼（转述，非原文）</h4>
+<ul><li>证券分析从"债券的安全标准"出发，再推广到股票：先问能不能亏，再问能赚多少。</li><li>分析的目的不是精确估值，而是判断是否存在足够的安全边际。</li><li>对普通投资者，可执行的分析深度有限——因此更要依赖简单、稳健的指标。</li></ul>
+<h4 id="h131">章节总结</h4>
+<ul><li><strong>核心主题</strong>：给个人投资者一个可操作的证券分析框架。</li><li><strong>主要论点</strong>：<<ol><li>分析的顺序是"先安全后收益"，不是"先收益后风险"。</li><li>投资价值是价格的函数，脱离价格谈好坏没有意义。</li><li>对个人投资者，分析的目的是判断"够不够便宜"，不是算出精确内在价值。</li></ol></li><li><strong>关键脉络</strong>：确立分析范式（先安全）→ 确立价值与价格的关系 → 降级个人投资者的分析目标（够便宜即可）。</li><li><strong>关键概念</strong>：安全标准、内在价值、价格函数。</li><li><strong>与全书的关联</strong>：本章是分析层的总纲，第 12–18 章都是它的展开；第 20 章给出最终判据。</li></ul>
+<h3 id="h133">第 12 章 · 对每股收益的思考</h3>
+<p><strong>一句话主旨</strong>：单年每股收益是最容易被操纵、也最容易被误读的数字——必须用多年平均。</p>
+<h4 id="h135">金句 1（兹威格点评，非格雷厄姆原句）</h4>
+<blockquote><p class="q">The only thing you should do with pro forma earnings is ignore them.</p><p class="q-tr">对于"备考利润"（pro forma earnings），你唯一该做的就是忽略它。</p><p class="q-loc">—— 位置：第 12 章点评（贾森·兹威格，第 4 版）</p></blockquote>
+<p><strong>释义</strong>：经过"调整"的利润是公司希望你看到的那个版本。<br><strong>为什么重要</strong>：给出一条零成本的防骗规则——凡是需要解释才能成立的利润，直接剔除。</p>
+<h4 id="h138">观点提炼（转述，非原文）</h4>
+<ul><li>用 7–10 年平均盈利替代单年盈利，可平滑周期与会计噪音。</li><li>警惕：会计政策变更、一次性损益、股权激励成本的隐藏、并购带来的账面增长。</li><li>增长必须来自真实的盈利能力提升，不能来自会计口径的变化。</li></ul>
+<h4 id="h140">章节总结</h4>
+<ul><li><strong>核心主题</strong>：如何正确使用"每股收益"这个最常用也最危险的指标。</li><li><strong>主要论点</strong>：<<ol><li>单年 EPS 波动大且易被操纵，不足以作为估值基础。</li><li>多年平均盈利是更稳健的替代口径。</li><li>所有"调整后"的口径都应默认不可信。</li></ol></li><li><strong>关键脉络</strong>：指出 EPS 的问题（易操纵、周期性）→ 给出替代口径（多年平均）→ 给出排除项（pro forma、一次性损益）。</li><li><strong>关键概念</strong>：EPS、平均盈利、pro forma、会计操纵。</li><li><strong>与全书的关联</strong>：本章是第 14、15 章选股标准的数据基础——没有干净的盈利口径，估值倍数毫无意义。</li></ul>
+<h3 id="h142">第 13 章 · 对四家上市公司的比较</h3>
+<p><strong>一句话主旨</strong>：脱离同行业对比的估值是没有意义的——必须在同类之间比。</p>
+<h4 id="h144">观点提炼（转述，非原文）</h4>
+<ul><li>格雷厄姆选取同行业四家公司并排对比，展示相同行业内的估值差异可以有多大。</li><li>方法要点：先看财务结构与盈利质量，再看市场给出的估值倍数，差值就是市场情绪的证据。</li><li>结论指向：同行业内定价差异往往是情绪而非基本面造成的，这正是便宜股的来源。</li></ul>
+<h4 id="h146">章节总结</h4>
+<ul><li><strong>核心主题</strong>：用同行业横向对比，把"贵/便宜"从感觉变成可陈述的事实。</li><li><strong>主要论点</strong>：<<ol><li>估值必须在可比对象之间进行。</li><li>同一行业内的估值离散度，反映了市场的情绪分布。</li><li>离散度越大，越可能存在被错杀的标的。</li></ol></li><li><strong>关键脉络</strong>：选同行业样本 → 并列关键财务指标 → 对比估值倍数 → 指出差异的情绪来源。</li><li><strong>关键概念</strong>：同行业比较、估值离散度、可比性。</li><li><strong>与全书的关联</strong>：本章与第 18 章是同一方法的两次演练（4 家 / 8 组），为第 14、15 章的选股提供方法论示例。</li></ul>
+<h3 id="h148">第 14 章 · 防御型投资者的股票选择</h3>
+<p><strong>一句话主旨</strong>：给防御型投资者七条硬性筛选标准，照单执行即可，不需要判断力。</p>
+<h4 id="h150">观点提炼（转述，非原文）</h4>
+<p>格雷厄姆为防御型投资者提出的七条标准（方向性描述，具体阈值随版本与时代调整）：</p>
+<ol><li><strong>规模足够大</strong>——避开小公司特有的脆弱性。</li><li><strong>财务状况足够稳健</strong>——流动比率与长期负债覆盖有底线。</li><li><strong>盈利稳定</strong>——多年持续盈利，无重大断层。</li><li><strong>股息记录</strong>——长期连续派息。</li><li><strong>盈利有增长</strong>——长期看有实质增长。</li><li><strong>市盈率适中</strong>——不超过一个上限。</li><li><strong>市净率适中</strong>——股价相对净资产不显著溢价。</li><li>附加约束：<strong>市盈率 × 市净率 的乘积也设上限</strong>，两条估值条件必须同时满足——防止"低 PE 高 PB"或"低 PB 高 PE"的漏网。</li></ol>
+<h4 id="h153">章节总结</h4>
+<ul><li><strong>核心主题</strong>：把第 5 章的原则性建议，转化成可勾选的清单。</li><li><strong>主要论点</strong>：<<ol><li>防御型投资者应该用量化的筛选替代主观判断。</li><li>七条标准同时覆盖"质量"（规模/财务/盈利/股息）与"价格"（PE/PB）。</li><li>价格类标准用"乘积上限"双重约束，堵住单指标失真。</li></ol></li><li><strong>关键脉络</strong>：先筛质量（1–5）→ 再筛价格（6–7）→ 用乘积上限交叉校验。</li><li><strong>关键概念</strong>：七条标准、市盈率、市净率、乘积约束。</li><li><strong>与全书的关联</strong>：本章是"防御型"路线的技术终点；第 15 章是"积极型"路线的对应版本。</li></ul>
+<h3 id="h155">第 15 章 · 积极型投资者的股票选择</h3>
+<p><strong>一句话主旨</strong>：积极型投资者买的是"便宜"，而便宜必须能被数字证明，不能被故事证明。</p>
+<h4 id="h157">金句 1（兹威格点评，非格雷厄姆原句）</h4>
+<blockquote><p class="q">Although there are good and bad companies, there is no such thing as a good stock; there are only good stock prices, which come and go.</p><p class="q-tr">公司有好有坏，但"好股票"这种东西并不存在——存在的只有好的股价，而它来了又会走。</p><p class="q-loc">—— 位置：第 15 章点评（贾森·兹威格，第 4 版）</p></blockquote>
+<p><strong>释义</strong>：质量是公司的属性，好坏是价格的属性，两者不能混为一谈。<br><strong>为什么重要</strong>：它是对"买好公司就等于好投资"这一流行观念最直接的否定，也是本章的立论基础。</p>
+<h4 id="h160">观点提炼（转述，非原文）</h4>
+<ul><li>便宜股的两大来源：被冷落的大公司、以及价格低于净流动资产价值的公司（net-net）。</li><li>检验便宜的核心：价格 vs 保守估计的价值，差值必须大到能吸收错误。</li><li>对次等普通股：只有在能证明是廉价品时才可买入，且必须配合分散化。</li></ul>
+<h4 id="h162">章节总结</h4>
+<ul><li><strong>核心主题</strong>：积极型选股的标准与便宜股的识别方法。</li><li><strong>主要论点</strong>：<<ol><li>"好公司"不等于"好投资"，决定性变量是价格。</li><li>便宜必须能被数字证明，而非被前景故事支撑。</li><li>次等标的只有在折扣足够大且组合足够分散时才可接受。</li></ol></li><li><strong>关键脉络</strong>：立论（价格决定好坏）→ 给出便宜股的来源 → 给出检验方法 → 给出风险控制（分散）。</li><li><strong>关键概念</strong>：便宜股、净流动资产价值、分散化、次等普通股。</li><li><strong>与全书的关联</strong>：本章的所有方法最终都回到第 20 章——"便宜"的量化定义就是安全边际。</li></ul>
+<h3 id="h164">第 16 章 · 可转换证券及认股权证</h3>
+<p><strong>一句话主旨</strong>：看似"下跌有债底、上涨有股性"的品种，实际上两头的好处都打了折。</p>
+<h4 id="h166">观点提炼（转述，非原文）</h4>
+<ul><li>可转换证券的问题：上涨时它跟随正股但被溢价侵蚀，下跌时债底保护又往往不够。</li><li>认股权证的问题：是公司可以凭空创造出来的权利，供给不受约束，且期限固定、价值随时间衰减。</li><li>结论：这两类工具属于第 6 章"消极排除"清单中的项目，普通投资者应当回避。</li></ul>
+<h4 id="h168">章节总结</h4>
+<ul><li><strong>核心主题</strong>：评估两类"混合型"证券，结论是不建议普通投资者参与。</li><li><strong>主要论点</strong>：<<ol><li>可转换证券的"双保险"在实践中两头打折。</li><li>认股权证的供给由公司控制，持有者处于结构性劣势。</li><li>它们属于投机工具而非投资工具。</li></ol></li><li><strong>关键脉络</strong>：拆解宣传卖点（两头占）→ 检验上涨情景（溢价侵蚀）→ 检验下跌情景（保护不足）→ 归入排除清单。</li><li><strong>关键概念</strong>：可转换证券、认股权证、稀释、时间价值衰减。</li><li><strong>与全书的关联</strong>：本章是第 6 章"排除清单"的技术展开，也解释了为什么成长型公司喜欢发行它们。</li></ul>
+<h3 id="h170">第 17 章 · 四个非常有启发的案例</h3>
+<p><strong>一句话主旨</strong>：用四个真实案例展示，亏损几乎都发生在"故事很动听、数字很难看"的地方。</p>
+<h4 id="h172">金句 1</h4>
+<blockquote><p class="q">Those who do not remember the past are condemned to repeat it.</p><p class="q-tr">忘记过去的人，注定要重蹈覆辙。（格雷厄姆引用的桑塔亚那名言）</p><p class="q-loc">—— 位置：第 17 章（引语，非格雷厄姆原创）</p></blockquote>
+<p><strong>释义</strong>：案例的价值在于提供模式识别的样本库。<br><strong>为什么重要</strong>：它说明了为什么这本书要花三章讲案例——规则会被忘记，模式会被记住。</p>
+<h4 id="h175">观点提炼（转述，非原文）</h4>
+<ul><li>本章用四个案例演示：会计手段如何美化报表、增长溢价如何在预期落空时反噬、杠杆如何把小错放大成灾难、并购故事如何掩盖基本面恶化。</li><li>共同模式：<strong>在事情看起来最好的时候买入，是亏损最常见的起点。</strong></li><li>说明：四个案例的具体公司名称与细节需以原书为准，本回顾只保留可迁移的模式结论。</li></ul>
+<h4 id="h177">章节总结</h4>
+<ul><li><strong>核心主题</strong>：用真实案例把前面的抽象警告变成具体画面。</li><li><strong>主要论点</strong>：<<ol><li>亏损有模式，不是随机事件。</li><li>会计手段与增长叙事是两大主要来源。</li><li>案例的作用是提供模式识别能力，而不是提供黑名单。</li></ol></li><li><strong>关键脉络</strong>：摆案例 → 提取共同模式 → 说明亏损的结构性来源。</li><li><strong>关键概念</strong>：会计操纵、增长溢价、杠杆放大、并购幻觉。</li><li><strong>与全书的关联</strong>：本章与第 18 章是方法论的实战演练，验证第 11–15 章的分析框架。</li></ul>
+<h3 id="h179">第 18 章 · 对八组公司的比较</h3>
+<p><strong>一句话主旨</strong>：配对比较是识别市场定价偏差最朴素的办法。</p>
+<h4 id="h181">观点提炼（转述，非原文）</h4>
+<ul><li>八组同行业公司两两配对，逐项对比财务与估值。</li><li>方法的价值：控制行业变量后，剩下的定价差异更可能来自情绪与叙事。</li><li>对读者的训练目标：建立"同类资产应该值差不多"的直觉，从而对异常差价敏感。</li></ul>
+<h4 id="h183">章节总结</h4>
+<ul><li><strong>核心主题</strong>：通过大量配对比较，训练对估值差异的敏感度。</li><li><strong>主要论点</strong>：<<ol><li>同行业内的大幅定价差异，往往不是基本面差异造成的。</li><li>配对比较是控制变量最简便的方法。</li><li>识别异常差价是寻找便宜股的第一步。</li></ol></li><li><strong>关键脉络</strong>：配对 → 并列指标 → 找差价 → 追问差价的合理性。</li><li><strong>关键概念</strong>：配对比较、控制变量、定价偏差。</li><li><strong>与全书的关联</strong>：与第 13 章同法，为第 15 章的便宜股筛选提供实操训练。</li></ul>
+<h3 id="h185">第 19 章 · 股东与管理层：股息政策</h3>
+<p><strong>一句话主旨</strong>：管理层质量是股东最难量化、却影响最大的变量；股息政策是它最诚实的暴露口。</p>
+<h4 id="h187">观点提炼（转述，非原文）</h4>
+<ul><li>管理层效率难以客观衡量：常用的是结果倒推，而结果又受行业与运气影响。</li><li>但股息与资本配置政策是相对可观察的：钱怎么分、往哪投，暴露了管理层为谁服务。</li><li>股东可用的手段有限：用脚投票（卖出）常常比发声更有效。</li><li>一句被格雷厄姆引用的美国商业俗语：如果你对管理层毫无兴趣，那就把股票卖掉。</li></ul>
+<h4 id="h189">章节总结</h4>
+<ul><li><strong>核心主题</strong>：股东如何看待并应对管理层与股息政策。</li><li><strong>主要论点</strong>：<<ol><li>管理层质量重要但难以客观测量。</li><li>资本配置与股息政策是判断管理层的可观察窗口。</li><li>股东的主要武器是退出，不是说服。</li></ol></li><li><strong>关键脉络</strong>：提出难题（管理层难评估）→ 找可观察代理变量（股息与配置）→ 给出股东手段（投票/退出）。</li><li><strong>关键概念</strong>：股息政策、资本配置、代理问题、管理层评估。</li><li><strong>与全书的关联</strong>：本章把"分析"从财务报表扩展到治理层，补上了第 11–15 章没有覆盖的一块。</li></ul>
+<h3 id="h191">第 20 章 · 作为投资中心思想的"安全边际"</h3>
+<p><strong>一句话主旨</strong>：全书二十章的全部论证，最后落在这三个字上——安全边际（MARGIN OF SAFETY）。</p>
+<h4 id="h193">金句 1</h4>
+<blockquote><p class="q">Confronted with a like challenge to distill the secret of sound investment into three words, we venture the motto, MARGIN OF SAFETY.</p><p class="q-tr">若要把稳健投资的秘诀浓缩成三个词，我们斗胆提出这句格言：安全边际。（格雷厄姆在原文中将其大写）</p><p class="q-loc">—— 位置：第 20 章</p></blockquote>
+<p><strong>释义</strong>：整本书可以用三个字概括。<br><strong>为什么重要</strong>：这是全书的题眼，也是格雷厄姆唯一用了大写强调的表述。</p>
+<h4 id="h196">金句 2</h4>
+<blockquote><p class="q">The margin of safety is always dependent on the price paid. It will be large at one price, small at some higher price, nonexistent at some still higher price.</p><p class="q-tr">安全边际永远取决于你付出的价格。在某个价格上它很大，在更高一些的价格上它变小，在再高一些的价格上它就不存在了。</p><p class="q-loc">—— 位置：第 20 章</p></blockquote>
+<p><strong>释义</strong>：安全边际是交易的属性，不是资产的属性。<br><strong>为什么重要</strong>：它解释了为什么"好公司"可以在某个价格上变成糟糕的投资——同一只股票在不同价位分属买、持、卖。</p>
+<h4 id="h199">金句 3</h4>
+<blockquote><p class="q">The function of the margin of safety is, in essence, that of rendering unnecessary an accurate estimate of the future.</p><p class="q-tr">安全边际的功能，本质上在于使你不必对未来做出准确的估计。</p><p class="q-loc">—— 位置：第 20 章</p></blockquote>
+<p><strong>释义</strong>：安全边际买的不是收益，是"可以不那么准"的权利。<br><strong>为什么重要</strong>：这是全书最重要的一句——它把投资从预测游戏改造成了风险管理游戏，也是"不预测也能赚钱"的理论基础。</p>
+<h4 id="h202">金句 4</h4>
+<blockquote><p class="q">To have a true investment, there must be present a true margin of safety. And a true margin of safety is one that can be demonstrated by figures, by persuasive reasoning, and by reference to a body of actual experience.</p><p class="q-tr">要有真正的投资，就必须有真正的安全边际；而真正的安全边际，是能够用数字、有说服力的推理、以及可参照的实际经验加以证明的。</p><p class="q-loc">—— 位置：第 20 章</p></blockquote>
+<p><strong>释义</strong>：安全边际必须可量化，不能用"我很看好"代替。<br><strong>为什么重要</strong>：它堵死了把乐观当边际的漏洞——这是格雷厄姆与后来"成长股投资"最根本的分歧点。</p>
+<h4 id="h205">金句 5</h4>
+<blockquote><p class="q">Even with a margin of safety in the investor's favor, an individual security may work out badly. For the margin guarantees only that he has a better chance for profit than for loss — not that loss is impossible. But as the number of such commitments is increased the more certain does it become that the aggregate of the profits will exceed the aggregate of the losses.</p><p class="q-tr">即便安全边际对投资者有利，单个证券仍可能表现糟糕——因为边际只保证盈利的概率大于亏损的概率，而不保证不会亏损。但随着这类投资的次数增加，总利润超过总亏损就变得越来越确定。</p><p class="q-loc">—— 位置：第 20 章</p></blockquote>
+<p><strong>释义</strong>：安全边际在单笔上是概率优势，在组合上才变成确定性。<br><strong>为什么重要</strong>：这是"安全边际 + 分散化"的完整逻辑链，也是为什么格雷厄姆从不推荐集中持仓。</p>
+<h4 id="h208">金句 6</h4>
+<blockquote><p class="q">Investment is most intelligent when it is most businesslike.</p><p class="q-tr">当投资最像经营生意时，它才是最明智的。</p><p class="q-loc">—— 位置：第 20 章（格雷厄姆引自其合伙人 1928 年的演讲，并称其为关于投资的最佳句子之一）</p></blockquote>
+<p><strong>释义</strong>：用买下一家店的审慎去买一股股票。<br><strong>为什么重要</strong>：巴菲特称这是全书最重要的一句——它把股票重新定义成了企业所有权，而不是交易筹码。</p>
+<h4 id="h211">章节总结</h4>
+<ul><li><strong>核心主题</strong>：安全边际是投资的中心概念，是把"不预测"变成"可盈利"的机制。</li><li><strong>主要论点</strong>：<<ol><li>安全边际取决于出价，不取决于资产本身。</li><li>它的功能是让你不必准确预测未来。</li><li>它必须可被数字证明，不能是乐观情绪的包装。</li><li>单笔上是概率优势，必须靠分散化转化为组合层面的确定性。</li></ol></li><li><strong>关键脉络</strong>：点题（三个词）→ 定义（取决于价格）→ 说明功能（免于预测）→ 设证明要求（量化）→ 补风险边界（分散化）→ 落到态度（像做生意）。</li><li><strong>关键概念</strong>：安全边际、内在价值、分散化、概率优势。</li><li><strong>与全书的关联</strong>：本章是全书的落点。第 1 章的定义靠它落地，第 8 章的心态靠它获得操作判据，第 14/15 章的选股标准是它的具体化。</li></ul>
+<h3 id="h213">后记</h3>
+<p><strong>一句话主旨</strong>：市场最终会纠正自己的错误，但纠正需要时间，而你必须活到那个时候。</p>
+<h4 id="h215">金句 1</h4>
+<blockquote><p class="q"><span class="badge">转述</span> 由市场造成的错误迟早会被市场自身纠正，市场不可能对明显的错误长久视而不见。</p><p class="q-loc">—— 位置：后记（转述，未能核对英文原句）</p></blockquote>
+<p><strong>释义</strong>：价值回归是长期规律，不是短期保证。<br><strong>为什么重要</strong>：它给了逆向投资者坚持下去的理由，同时也隐含了约束——你必须有能等到纠正的资金与时间。</p>
+<h4 id="h218">金句 2</h4>
+<blockquote><p class="q"><span class="badge">转述</span> 即便是聪明的投资者，也可能需要坚强的意志才能置身于"羊群"之外。</p><p class="q-loc">—— 位置：后记（转述，未能核对英文原句）</p></blockquote>
+<p><strong>释义</strong>：正确的判断在被执行前毫无价值，而执行的障碍是群体压力。<br><strong>为什么重要</strong>：与导言"最大的敌人是自己"首尾呼应，把全书收在"性格"这个起点上。</p>
+<h4 id="h221">章节总结</h4>
+<ul><li><strong>核心主题</strong>：价值回归的长期性与坚持独立判断的难度。</li><li><strong>主要论点</strong>：<<ol><li>市场的错误会被纠正，但时间不确定。</li><li>因此投资者必须具备能等待的财务结构与心理素质。</li><li>独立判断的难点不在分析，在承受与群体不一致的压力。</li></ol></li><li><strong>关键脉络</strong>：给出长期规律（错误会被纠正）→ 指出约束（时间不确定）→ 落到人的条件（意志与独立性）。</li><li><strong>关键概念</strong>：价值回归、羊群效应、长期持有能力。</li><li><strong>与全书的关联</strong>：后记与导言形成闭环——导言说"敌人是自己"，后记说"要战胜它需要意志"。</li></ul>
+<h2 id="h223">四、全书总结</h2>
+<h3 id="h224">主线逻辑</h3>
+<p>格雷厄姆的论证是一条完整的因果链，起点是<strong>人的不可靠</strong>，终点是<strong>制度的可靠</strong>：</p>
+<p><strong>投资者的主要敌人是自己（导言）</strong> → 所以必须先划清投资与投机的边界，别把投机当投资（第 1 章） → 而宏观环境（通胀、历史估值）无法预测，只能靠机械规则应对（第 2–3 章） → 于是按投入意愿分出两条路线：防御型用固定的股债比例和七条筛选标准（第 4–5、14 章），积极型先用排除法再找可计算的便宜（第 6–7、15 章） → 但无论哪条路线，都要面对市场波动的诱惑，所以需要市场先生这个心理装置（第 8 章） → 而判断"报价是否错得离谱"需要估值能力，于是展开证券分析与盈利口径的净化（第 11–13、18 章） → 并排除掉那些结构性地不利于持有者的工具（第 16 章）与不合格的管理层（第 19 章） → <strong>最终把所有论证收敛为一个可量化的判据：安全边际（第 20 章）</strong>。</p>
+<p>一句话概括：<strong>因为你预测不了未来，也管不住自己，所以只能靠"出价足够低"这一条规则，把不确定性从收益端转移到价格端。</strong></p>
+<h3 id="h228">核心观点关联</h3>
+<div class="table-wrap"><table><thead><tr><th>观点 A</th><th>观点 B</th><th>二者关系</th></tr></thead><tbody><tr><td>投资的定义（详尽分析 + 本金安全 + 满意回报）</td><td>安全边际</td><td>B 是 A 的可执行形式——"本金安全"靠 B 来量化</td></tr><tr><td>无法预测未来（第 2、3 章）</td><td>安全边际"使准确预测不必要"</td><td>A 是前提，B 是对 A 的直接回应</td></tr><tr><td>市场先生寓言（第 8 章）</td><td>安全边际</td><td>A 提供"何时行动"的触发条件，B 提供"是否行动"的判据，二者缺一不可</td></tr><tr><td>安全边际</td><td>分散化</td><td>B 是 A 的配套：边际在单笔上是概率优势，靠分散才变成确定性</td></tr><tr><td>防御型 vs 积极型</td><td>同一套安全边际原则</td><td>角色不同导致执行成本不同，判断标准完全一致</td></tr><tr><td>价格是价值的函数（第 11 章）</td><td>"好公司 ≠ 好投资"（第 15 章）</td><td>A 是原理，B 是 A 在选股上的推论</td></tr><tr><td>情绪控制（导言、第 8 章）</td><td>机械规则（第 4 章股债比例、第 14 章七条标准）</td><td>B 是 A 的工程替代：用规则绕过意志力的不可靠</td></tr></tbody></table></div>
+<h3 id="h230">整体思想框架</h3>
+<ol><li><strong>不可知论</strong>：未来不可预测，宏观不可预测，市场短期不可预测。所有规则都建立在"放弃预测"之上。</li><li><strong>价格优先</strong>：投资价值是所付价格的函数。质量是公司的属性，好坏是价格的属性。</li><li><strong>量化纪律</strong>：任何"便宜"的声称都必须能被数字证明；乐观与故事不构成安全边际。</li><li><strong>分散化兜底</strong>：单个判断会错，组合不会。安全边际提供概率优势，分散化把概率变成确定性。</li><li><strong>角色自洽</strong>：防御型与积极型不是能力等级，是投入意愿的自我选择——选错角色比选错股票更致命。</li><li><strong>性格即能力</strong>：全书首尾都在说同一件事——分析能力是门槛，情绪控制才是分水岭。</li></ol>
+<h3 id="h232">作者意图与背景</h3>
+<p>格雷厄姆写作跨越 1929 年大崩盘与 1930 年代大萧条，他亲历过杠杆与群体狂热带来的毁灭。这本书的每一条保守规则，都可以追溯到那次创伤：他不是在追求最优解，而是在设计一套"在最坏情况下仍然活得住"的系统。1971–1972 年的第 4 版修订又叠加了通胀与"漂亮 50"的背景，因此书中反复强调"别为增长付高价"——那是他对当时市场风气的直接回应。</p>
+<h3 id="h234">三个最该记住的结论</h3>
+<ol><li><strong>投资与投机的分界线是"你是否做了详尽分析并要求本金安全"，与你买了什么无关。</strong></li><li><strong>安全边际的功能，是让你不必准确预测未来——你买的不是收益，是"可以犯错"的空间。</strong></li><li><strong>市场是来服务你的，不是来指导你的：只在价格极端时行动，其余时间忽略它。</strong></li></ol>
+<h2 id="h236">五、重点回顾提示</h2>
+<h3 id="h237">高频回顾清单</h3>
+<ul><li>☐ 我这一笔操作，能说清"做了什么分析、本金有多安全、期待多少回报"吗？说不清就是投机。</li><li>☐ 我现在的股债比例是多少？偏离 50/50 后有没有再平衡？</li><li>☐ 我买的理由，是"价格低于保守估计的价值"，还是"我相信它会涨"？</li><li>☐ 我用的是多年平均盈利，还是最近一年的漂亮数字？</li><li>☐ 我的持仓里有没有"需要解释才成立"的资产（pro forma 利润、故事型成长股）？</li><li>☐ 我付的费用（管理费/顾问费）占资产的百分之几？</li><li>☐ 单笔持仓占比是否大到"判断错了就无法翻身"？</li><li>☐ 如果明天市场关闭三年，我还能安心持有现在的组合吗？</li></ul>
+<h3 id="h239">自测题</h3>
+<p><strong>Q1. 格雷厄姆对"投资操作"的定义包含哪三个条件？</strong></p>
+<p>答案：详尽的分析、本金安全、令人满意的回报。三条不全满足即为投机。</p>
+<p><strong>Q2. 投资者与投机者"最实际的区别"体现在哪里？</strong></p>
+<p>答案：体现在对市场波动的态度上——投机者关心预测并从中获利，投资者关心以合适的价格取得并持有合适的证券。</p>
+<p><strong>Q3. 安全边际的三个核心论断是什么？</strong></p>
+<p>答案：①它取决于所付价格；②它的功能是使准确预测未来变得不必要；③它必须能用数字、推理和实际经验加以证明。</p>
+<p><strong>Q4. 既然安全边际已经有利，为什么还必须分散化？</strong></p>
+<p>答案：因为安全边际只保证盈利概率大于亏损概率，不保证单笔不亏；只有靠足够多的此类投资，总利润超过总亏损才变得确定。</p>
+<p><strong>Q5. 防御型投资者的默认股债配置是什么？允许区间是多少？</strong></p>
+<p>答案：默认 50/50；普通股占比允许在 25%–75% 之间浮动，债券反向对应。</p>
+<p><strong>Q6. 为什么不能用单年每股收益做估值？</strong></p>
+<p>答案：单年 EPS 波动大且最易被会计手段操纵；应改用 7–10 年平均盈利，并剔除 pro forma 等调整口径。</p>
+<p><strong>Q7. "市场先生"这个寓言要说明什么？</strong></p>
+<p>答案：市场报价是给你使用的工具，不是给你的指导；只在报价明显有利时与他交易，其余时间忽略他。</p>
+<p><strong>Q8. 为什么"好公司"不等于"好投资"？</strong></p>
+<p>答案：因为任何投资的价值都是所付价格的函数——价格足够高时，好公司也会变成糟糕的投资。</p>
+<p><strong>Q9. 第 14 章给防御型投资者的估值约束，为什么要用"市盈率 × 市净率"的乘积上限？</strong></p>
+<p>答案：为了防止单一指标失真——避免"低 PE 但高 PB"或"低 PB 但高 PE"的标的漏过筛选，两条价格条件必须同时满足。</p>
+<p><strong>Q10. 格雷厄姆说投资者"最主要的敌人"是谁？</strong></p>
+<p>答案：投资者自己。全书首尾都强调：分析能力是门槛，情绪控制才是分水岭。</p>
+<p><strong>Q11. 为什么格雷厄姆不建议普通投资者碰可转换证券与认股权证？</strong></p>
+<p>答案：可转债上涨时被溢价侵蚀、下跌时债底保护不足，两头打折；权证的供给由公司控制、期限固定且随时间衰减，持有者处于结构性劣势。</p>
+<p><strong>Q12. 全书最后一章的题眼是哪三个字？</strong></p>
+<p>答案：安全边际（MARGIN OF SAFETY）——格雷厄姆在原文中将其大写。</p>
+<h3 id="h264">行动清单</h3>
+<ol><li>打开账户，算出现在的股债比例，写下再平衡目标与触发阈值（如偏离 5 个百分点即调整）。</li><li>给每一笔持仓写一句话："我买入时，价格相对保守估值的折扣是多少？"——写不出来的标记复核。</li><li>把持仓中"需要讲故事才成立"的标的列出来，逐条问：如果故事不成立，最坏亏多少。</li><li>统计年度总费用（管理费 + 顾问费 + 交易成本）占资产比例，超过 1% 就启动比价。</li><li>建立一张"不碰清单"（低等级债、权证、新发行股、高 PE 成长股），下单前对照。</li></ol>
+<h3 id="h266">易混淆 / 易错点</h3>
+<ul><li><strong>"安全边际"≠"便宜的股票"</strong>：它是价格与保守估计价值之间的差额，且必须能被数字证明。股价 3 元不等于便宜。</li><li><strong>"防御型"≠"能力差"</strong>：它是主动选择的角色，取决于愿意投入的时间与心力，与智力无关。</li><li><strong>"逆向投资"≠"与大众反着做"</strong>：逆向只有在"你的事实与分析正确"时才成立；共识不是判断标准，数据才是。</li><li><strong>"忽略市场"≠"从不交易"</strong>：格雷厄姆说的是在中间地带忽略，在价格大幅偏离时必须行动。</li><li><strong>"分散化"≠"买很多只同涨同跌的票"</strong>：分散的前提是每笔都有安全边际，否则只是把同一个错误重复多次。</li><li><strong>"格雷厄姆 = 买便宜货"是简化</strong>：他要求的是"便宜 + 财务稳健 + 分散"，三者缺一不可。</li></ul>
+<h3 id="h268">复习节奏建议</h3>
+<ul><li>第 1 次：读完后 24 小时内，只看"三个最该记住的结论"和第 20 章的六条金句。</li><li>第 2 次：3 天后，做自测题 12 道，错题回到对应章节重读金句。</li><li>第 3 次：1 周后，只看"全书结构鸟瞰"表，凭记忆复原主线逻辑链条。</li><li>第 4 次：1 个月后，用"高频回顾清单"对照自己的真实持仓做一次逐项体检。</li><li>第 5 次：每遇一次市场大幅波动，重读第 8 章——这是本书唯一在情绪上真正起作用的章节。</li></ul>
+<h2 id="h270">六、内容来源与置信度</h2>
+<div class="table-wrap"><table><thead><tr><th>项</th><th>说明</th></tr></thead><tbody><tr><td>来源类型</td><td>B 档（联网检索）+ C 档（模型知识）<strong>混合</strong>，未使用本地原文</td></tr><tr><td>章节依据</td><td>第 4 版（1973）中文通行译本目录，已与英文原版目录交叉核对，22 节完整覆盖</td></tr><tr><td>金句形式</td><td>以<strong>英文原句为原文</strong>，配中文通行译本；因原书为英文著作，中文部分属译文而非"原文"</td></tr><tr><td>金句置信度</td><td><strong>高</strong>：第 1 章投资定义与态度区分、第 8 章市场先生与波动相关句、第 20 章全部六条（多来源一致）</td></tr><tr><td>金句置信度</td><td><strong>中/中高</strong>：导言三条、第 4 章股债比例、第 6 章亏损来源、第 7 章"基于算术"、第 11 章价格函数</td></tr><tr><td>金句置信度</td><td><strong>转述</strong>：第 2 章、后记相关句，以及第 12/13/16/17/18/19 章的观点提炼块，均已标注「转述，非原文」</td></tr><tr><td>点评归属</td><td>已明确标注「兹威格点评」的句子来自第 4 版贾森·兹威格注释，<strong>不是</strong>格雷厄姆 1949/1973 年原文</td></tr><tr><td>存疑处</td><td>①第 6 章"最大亏损来自景气期买入低质量证券"一句在不同版本中的章节归属可能有出入；②后记两条仅有中译、未核到英文原句，已标为转述；③第 17 章四个案例的具体公司细节未逐条核实，本回顾只保留可迁移的模式结论；④"股市短期是投票机、长期是称重机"一句广为流传但出处不明，故未收入金句</td></tr><tr><td>建议</td><td>若要 100% 逐字准确，提供本地 PDF/EPUB 原文后重跑一次，可将全部金句升到 A 档（原文直录）</td></tr></tbody></table></div></div></main>
+</div>
+<script>
+var main=document.getElementById('main'),sheet=main.querySelector('.sheet');
+/* hero extraction */
+var h1=sheet.querySelector('h1'),first=sheet.children[0];
+if(h1){
+  var hero=document.createElement('div');hero.className='hero';
+  hero.innerHTML='<div class="kicker">The Intelligent Reader · 精读回顾</div>'
+   +'<h1>'+h1.innerHTML.replace(/[《》]/g,'')+'</h1>';
+  var bq=sheet.querySelector('h1 + blockquote, h1 ~ blockquote');
+  if(bq&&bq.previousElementSibling===h1){var s=document.createElement('p');s.className='sub';
+    s.innerHTML=bq.innerHTML;hero.appendChild(s);bq.parentNode.removeChild(bq);}
+  hero.appendChild((function(){var f=document.createElement('div');f.className='herofoot';
+    f.innerHTML='<span>按章节折叠</span><span>金句 · 释义</span><span>自测 · 回顾</span>';return f;})());
+  sheet.insertBefore(hero,first);h1.parentNode.removeChild(h1);
+}
+/* sticky toolbar */
+var tools=document.createElement('div');tools.className='tools';
+[['全部展开',function(){chaps.forEach(function(c){openChap(c,1);});}],
+ ['全部收起',function(){chaps.forEach(function(c){openChap(c,0);});}],
+ ['显示全部答案',function(){main.querySelectorAll('.ans').forEach(function(a){a.classList.add('open');});}],
+ ['纸 / 墨',function(){document.documentElement.classList.toggle('dark');}],
+ ['打印',function(){window.print();}]].forEach(function(x){
+  var b=document.createElement('button');b.textContent=x[0];b.onclick=x[1];tools.appendChild(b);});
+var sp=document.createElement('span');sp.className='sp';tools.insertBefore(sp,tools.children[3]);
+sheet.parentNode.insertBefore(tools,sheet);
+
+/* build nav */
+var nav=document.getElementById('nav'),hs=sheet.querySelectorAll('h2,h3'),html='';
+hs.forEach(function(h,i){h.id=h.id||'s'+i;
+  html+='<a class="'+(h.tagName==='H3'?'lv3':'')+'" href="#'+h.id+'" style="--i:'+i+'">'+h.textContent+'</a>';});
+nav.innerHTML=html;
+var links=[].slice.call(nav.children);
+
+/* wrap chapters */
+var chaps=[],els=[].slice.call(sheet.children),cur=null;
+els.forEach(function(el){
+  if(el.tagName==='H3'){
+    var nm=(el.textContent.match(/第\s*([0-9]+)\s*章/)||[])[1];
+    var card=document.createElement('div');card.className='chap';
+    var hd=document.createElement('div');hd.className='hd';
+    hd.innerHTML='<span class="num'+(nm?'':' dot')+'">'+(nm||'')+'</span><span class="t">'
+      +el.textContent.replace(/^第\s*[0-9]+\s*章\s*·\s*/,'')+'</span><span class="tg">收起</span>';
+    var bd=document.createElement('div');bd.className='bd';
+    card.appendChild(hd);card.appendChild(bd);sheet.insertBefore(card,el);el.remove();
+    hd.onclick=function(){openChap(card,!card.classList.contains('open'));};
+    chaps.push(card);cur=bd;
+  } else if(cur&&el.tagName!=='H2'&&el!==tools){cur.appendChild(el);}
+  else if(el.tagName==='H2'){cur=null;}
+});
+function openChap(c,yes){
+  c.classList.toggle('open',!!yes);
+  c.querySelector('.tg').textContent=yes?'收起':'展开';
+  var bd=c.querySelector('.bd');
+  bd.style.maxHeight=yes?bd.scrollHeight+'px':'0';
+  if(yes)bd.querySelectorAll('.rv').forEach(function(el){el.classList.add('in');});
+}
+/* default: open first chapter only */
+chaps.forEach(function(c,i){openChap(c,i===0);});
+
+/* 兹威格点评 -> dashed */
+main.querySelectorAll('blockquote').forEach(function(b){
+  if(b.textContent.indexOf('兹威格')>=0)b.classList.add('cmt');});
+
+/* answer masking */
+main.querySelectorAll('p,blockquote').forEach(function(el){
+  if(/^(答案|答|【答案】)[:：]?/.test(el.textContent.trim())){
+    el.classList.add('ans');el.onclick=function(){el.classList.toggle('open');};}});
+
+/* reveal on scroll */
+var io=new IntersectionObserver(function(es){
+  es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{rootMargin:'0px 0px -12% 0px'});
+sheet.querySelectorAll('h2,p,blockquote,table,ul,ol,h4').forEach(function(el){
+  if(!el.closest('.hero')){el.classList.add('rv');io.observe(el);}});
+
+/* nav active */
+var io2=new IntersectionObserver(function(es){
+  es.forEach(function(e){if(e.isIntersecting){
+    links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id);});}});
+},{rootMargin:'-10% 0px -80% 0px'});
+hs.forEach(function(h){io2.observe(h);});
+
+/* search */
+var marks=[];
+function clearMark(){marks.forEach(function(m){if(m.parentNode)m.parentNode.replaceChild(
+  document.createTextNode(m.textContent),m);});marks=[];}
+document.getElementById('q').oninput=function(){
+  clearMark();var k=this.value.trim();
+  chaps.forEach(function(c){c.classList.remove('hide');});
+  if(!k){return;}
+  chaps.forEach(function(c){
+    if(c.textContent.toLowerCase().indexOf(k.toLowerCase())<0){c.classList.add('hide');return;}
+    openChap(c,1);
+    try{var r=new RegExp('('+k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','gi');
+      c.querySelectorAll('p,li,td').forEach(function(el){
+        if(el.children.length===0&&el.textContent.indexOf(k)>=0){
+          el.innerHTML=el.innerHTML.replace(r,'<mark>$1</mark>');
+          [].slice.call(el.querySelectorAll('mark')).forEach(function(m){marks.push(m);});}});}catch(e){}
+  });
+};
+document.addEventListener('keydown',function(e){
+  if(e.key==='/'&&document.activeElement!==document.getElementById('q')){
+    e.preventDefault();document.getElementById('q').focus();}
+  if((e.key==='p'||e.key==='P')&&!e.metaKey&&!e.ctrlKey&&document.activeElement!==document.getElementById('q')){
+    window.print();}
+});
+document.addEventListener('scroll',function(){
+  var h=document.documentElement,p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;
+  document.getElementById('bar').style.width=(isNaN(p)?0:p)+'%';});
+function recalc(){chaps.forEach(function(c){if(c.classList.contains('open')){var bd=c.querySelector('.bd');bd.style.maxHeight=bd.scrollHeight+'px';}});}
+window.addEventListener('resize',recalc);
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(recalc);
+</script></body></html>
