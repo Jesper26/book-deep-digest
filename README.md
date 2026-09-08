@@ -93,3 +93,7 @@ python scripts/extract_book_text.py 你的书.pdf --dump-dir chapters
 
 不带参数运行会打印用法。执行后站点地址为 `https://<用户名>.github.io/book-deep-digest/`。
 
+## 9. 开源许可
+
+本项目以 [MIT License](LICENSE) 永久开源：可自由使用、修改、分发（含商用），只需保留版权与许可声明。
+
