@@ -30,6 +30,9 @@ git remote add origin "https://$USER:$TOKEN@github.com/$USER/$REPO.git"
 git branch -M main
 git push -u origin main
 
+# 推送完成后立即移除 remote 中的 token，避免凭据残留于 .git/config
+git remote set-url origin "https://github.com/$USER/$REPO.git"
+
 echo ">>> [3/4] 开启 GitHub Pages (main 分支 /docs) ..."
 # 仓库需已有内容，已在 [2/4] 推送；此步可能需重试一次
 for i in 1 2 3; do
