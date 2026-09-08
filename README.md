@@ -12,21 +12,21 @@
 - **全书级**：在所有章节总结的基础上归纳「全文总结」，梳理主线逻辑、观点关联与思想框架。
 - **温习页**：把 Markdown 渲染成单文件 HTML——侧边目录、全文搜索、章节折叠、自测题答案遮罩、进度条、一键打印存 PDF、纸 / 墨双主题。
 
-## 2. 安装到 WorkBuddy
+## 2. 安装方式
 
 两种方式：
 
 **方式 A · 直接导入 `.skill` 包**（推荐，零依赖）
 
-下载 `dist/book-deep-digest.skill`，在 WorkBuddy 技能面板「导入」即可。
+下载 `dist/book-deep-digest.skill`，在 AI 助手的技能面板「导入」即可。
 
 **方式 B · 克隆源码**
 
 ```bash
-git clone <本仓库地址> ~/.workbuddy/skills/book-deep-digest
+git clone <本仓库地址> <你的技能目录>/book-deep-digest
 ```
 
-克隆后目录应直接为 `~/.workbuddy/skills/book-deep-digest/{SKILL.md,scripts,references}`（仓库根即技能根）。
+克隆后目录应直接为 `<你的技能目录>/book-deep-digest/{SKILL.md,scripts,references}`（仓库根即技能根）。
 
 ## 3. 使用
 
@@ -57,8 +57,9 @@ python scripts/extract_book_text.py 你的书.pdf --dump-dir chapters
 
 `docs/` 目录已开启 GitHub Pages（源：main 分支 / `docs`），收录已生成的精读回顾网页，例如：
 
-- 《聪明的投资者》精读回顾
-- 《孙子兵法》示例
+- 《聪明的投资者》精读回顾（示例）
+- 《你当像鸟飞往你的山》精读回顾
+- 《我胆小如鼠》精读回顾
 
 入口：`docs/index.html`（仓库开启 Pages 后即为站点首页 `https://<用户名>.github.io/book-deep-digest/`）。
 
@@ -95,5 +96,5 @@ python scripts/extract_book_text.py 你的书.pdf --dump-dir chapters
 
 ## 9. 开源许可
 
-本项目以 [MIT License](LICENSE) 永久开源：可自由使用、修改、分发（含商用），只需保留版权与许可声明。
+本项目以 [CC BY-NC 4.0](LICENSE)（署名-非商业性使用）永久开源：可自由**使用、修改、再分发**，但**禁止任何商业用途**，且必须注明原作者与来源。详见 [LICENSE](LICENSE)。
 
