@@ -96,5 +96,5 @@ python scripts/extract_book_text.py 你的书.pdf --dump-dir chapters
 
 ## 9. 开源许可
 
-本项目以 [CC BY-NC 4.0](LICENSE)（署名-非商业性使用）永久开源：可自由**使用、修改、再分发**，但**禁止任何商业用途**，且必须注明原作者与来源。详见 [LICENSE](LICENSE)。
+本项目以 [CC BY-NC-ND 4.0](LICENSE)（署名-非商业性-禁止演绎）永久开源：可自由**下载、原样使用、原样分享**；**不允许修改源码或基于其创作衍生作品**，也**不允许任何商业用途**，使用时须注明原作者与来源。详见 [LICENSE](LICENSE)。
 
