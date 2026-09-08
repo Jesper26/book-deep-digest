@@ -2,7 +2,7 @@
 
 输入一本书名，自动生成可反复翻阅的**精读回顾材料**：逐章提炼金句（附释义与位置）+ 章节总结，再汇总全书主线逻辑与思想框架，最后给出重点回顾提示与自测题。成品可直接渲染成单文件 HTML 温习页（搜索 / 折叠 / 答题遮罩 / 纸墨双主题）。
 
-> 本仓库根目录即技能本身（`SKILL.md` + `scripts/` + `references/`），同时也是 GitHub Pages 站点（见下方 `pages/`）。
+> 本仓库根目录即技能本身（`SKILL.md` + `scripts/` + `references/`），同时也是 GitHub Pages 站点（见下方 `docs/`）。
 
 ---
 
@@ -55,12 +55,12 @@ python scripts/extract_book_text.py 你的书.pdf --dump-dir chapters
 
 ## 5. 在线预览（GitHub Pages）
 
-`pages/` 目录已开启 GitHub Pages，收录已生成的精读回顾网页，例如：
+`docs/` 目录已开启 GitHub Pages（源：main 分支 / `docs`），收录已生成的精读回顾网页，例如：
 
 - 《聪明的投资者》精读回顾
 - 《孙子兵法》示例
 
-入口：`pages/index.html`（仓库开启 Pages 后即为站点首页）。
+入口：`docs/index.html`（仓库开启 Pages 后即为站点首页 `https://<用户名>.github.io/book-deep-digest/`）。
 
 ## 6. 目录结构
 
@@ -71,7 +71,7 @@ python scripts/extract_book_text.py 你的书.pdf --dump-dir chapters
 │   ├── build_review_page.py # Markdown → 单文件 HTML 温习页
 │   └── extract_book_text.py # 本地电子书切章
 ├── references/              # 输出模板 / 质量规则 / 来源策略 / 示例
-├── pages/                   # GitHub Pages 站点（精读回顾网页）
+├── docs/                    # GitHub Pages 站点（源分支 main /docs，精读回顾网页）
 │   ├── index.html
 │   └── *.html
 └── dist/
@@ -81,3 +81,15 @@ python scripts/extract_book_text.py 你的书.pdf --dump-dir chapters
 ## 7. 设计说明
 
 温习页为「编辑书卷风」：暖纸底 + 墨色正文 + 单一朱砂强调色，标题 / 金句用衬线（Spectral + Noto Serif SC），正文用系统无衬线以保证中文可读性。金句分三层排版（原句 / 中译 / 出处），兹威格点评自动以虚线边框与格雷厄姆原句区分。
+
+## 8. 一键部署到 GitHub Pages
+
+仓库根提供了 `deploy.sh`，一键完成：建仓库 → 推送 main → 开启 Pages（main 分支 /docs）。
+
+```bash
+./deploy.sh <github用户名> <PAT>
+# PAT 需具备 repo 权限（classic token 勾 repo；fine-grained 勾 Contents + Pages 写）
+```
+
+不带参数运行会打印用法。执行后站点地址为 `https://<用户名>.github.io/book-deep-digest/`。
+
