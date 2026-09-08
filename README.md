@@ -14,19 +14,28 @@
 
 ## 2. 安装方式
 
-两种方式：
+**方式一 · 一句话让 AI 助手帮你装**（推荐）
 
-**方式 A · 直接导入 `.skill` 包**（推荐，零依赖）
+把下面任一段话直接发给 AI 助手，对方会自动完成下载 + 安装 + 验证。复制即可，无需改动：
 
-下载 `dist/book-deep-digest.skill`，在 AI 助手的技能面板「导入」即可。
+- **完整仓库版**（让助手把仓库整个 clone 到技能目录）
 
-**方式 B · 克隆源码**
+  > 请帮我安装一个技能：从 https://github.com/Jesper26/book-deep-digest 下载仓库到本地，把 book-deep-digest 目录（含 SKILL.md、scripts/、references/）安装到你的技能目录（如 `~/.workbuddy/skills/book-deep-digest`），安装后告诉我如何使用。
 
-```bash
-git clone <本仓库地址> <你的技能目录>/book-deep-digest
-```
+- **一键包版**（让助手只下载打包好的 `.skill` 文件，体积更小、零依赖）
 
-克隆后目录应直接为 `<你的技能目录>/book-deep-digest/{SKILL.md,scripts,references}`（仓库根即技能根）。
+  > 请下载并安装这个技能包：https://github.com/Jesper26/book-deep-digest/raw/main/dist/book-deep-digest.skill
+
+**方式二 · 自己手动下载**
+
+- **导入 `.skill` 包**：从仓库 [dist/book-deep-digest.skill](https://github.com/Jesper26/book-deep-digest/raw/main/dist/book-deep-digest.skill) 下载单文件，在 AI 助手的技能面板「导入技能 / Install Skill」上传即可。
+- **克隆源码**：
+
+  ```bash
+  git clone https://github.com/Jesper26/book-deep-digest.git <你的技能目录>/book-deep-digest
+  ```
+
+  克隆后目录应直接为 `<你的技能目录>/book-deep-digest/{SKILL.md, scripts, references}`（仓库根即技能根）。
 
 ## 3. 使用
 
